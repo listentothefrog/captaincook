@@ -2,7 +2,7 @@
 <img src="https://raw.githubusercontent.com/listentothefrog/captaincook/8d24e0fe82013c52326b04d84a25960c92df646d/triumph/public/logo-web.svg"/>
 </p></a>
 <p align="center">
-  <strong>Organize your recipes like a pro cook 👩‍🍳🍳</strong>
+  <strong>Organize your recipes like a pro cook 👩‍🍳</strong>
 </p>
 
 <p align="center">
