@@ -29,7 +29,7 @@ CaptainCook is where you can organize your recipes. Chef's can create a recipie 
 
 ## Contributions
 
-This project is open for contibutions anyone with any experience can contribute to this repository. Please read the [Contribution Docs](https://github.com/listentothefrog/captaincook/blob/dev/CONTRIBUTING.md) and [Code of Conduct]() before contributing. The contributor can pick an exiting issue or an issue they have spotted on the site and start working on it. If you have any ideas for the project please send discord dm `absoluteunit#5177` and create a github issue with the "enhancement" label. 
+This project is open for contibutions anyone with any experience can contribute to this repository. Please read the [Contribution Docs](https://github.com/listentothefrog/captaincook/blob/dev/CONTRIBUTING.md) and [Code of Conduct](https://github.com/listentothefrog/captaincook/blob/dev/CODE_OF_CONDUCT.md) before contributing. The contributor can pick an exiting issue or an issue they have spotted on the site and start working on it. If you have any ideas for the project please send discord dm `absoluteunit#5177` and create a github issue with the "enhancement" label. 
 
 ## The Current Text Stack
 
