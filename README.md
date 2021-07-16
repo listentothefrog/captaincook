@@ -38,7 +38,7 @@ This project is open for contibutions anyone with any experience can contribute 
 * Firebase (backend)
 * Typescript
 
-These are final candidates for the MVP for the web app. 
+These are final candidates for the MVP. 
 
 ## Refiend Text Stack aka The Beast Stack
 
