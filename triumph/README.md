@@ -26,7 +26,7 @@ npm:
 ```bash
 git clone https://github.com/listentothefrog/captaincook.git
 cd ../kebab
-npm install // installs all dependencies
+npm install # installs all dependencies
 npm run dev
 ```
 
@@ -35,7 +35,7 @@ Yarn:
 ```bash
 git clone https://github.com/listentothefrog/captaincook.git
 cd ../kebab
-yarn install // installs all dependencies
+yarn install # installs all dependencies
 yarn dev
 ```
 
