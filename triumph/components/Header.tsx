@@ -11,17 +11,19 @@ const Header = () => {
         </NextLink>
       </div>
       <div className="flex items-center justify-end w-92 mr-10">
-        <div className="flex w-full">
+        <div className="flex w-full items-center">
           <div className="mr-10 cursor-pointer hover:underline mt-2">
-            meet the team
+            Meet the team
           </div>
           <div className="mr-10 cursor-pointer hover:underline mt-2">
-            contact us
+            Contact us
           </div>
-          <div className="mr-10 cursor-pointer hover:underline mt-2">login</div>
+          <div className="flex items-center mr-10 cursor-pointer hover:underline mt-2">
+            Login
+          </div>
           <div className="cursor-pointer">
-            <div className="px-3 py-1 bg-red text-white rounded-lg">
-              register
+            <div className="px-3 py-2 border border-red  text-black rounded-lg hover:bg-hover-red hover:text-white">
+              Register
             </div>
           </div>
         </div>
