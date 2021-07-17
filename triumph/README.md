@@ -13,19 +13,30 @@
   </a>
 </p>
 
-# What is this folder?
+## What is this folder?
 
 This folder is called triumph, it is currently used for our Next.js frontend.
 
-# How can I contribute?
+## How can I contribute?
 
-**We're using [Node](hhttps://nodejs.org/en/) for this project, do not use npm for the following commands**
+**We're using [npm](https://npmjs.org) for this project, you can also [yarn](https://yarnpkg.com)**
+
+npm:
 
 ```bash
 git clone https://github.com/listentothefrog/captaincook.git
 cd ../kebab
-npm install
+npm install // installs all dependencies
 npm run dev
+```
+
+Yarn:
+
+```bash
+git clone https://github.com/listentothefrog/captaincook.git
+cd ../kebab
+yarn install // installs all dependencies
+yarn dev
 ```
 
 You should now be all set to go and run the dev server
