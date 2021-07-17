@@ -18,13 +18,9 @@ const Header = () => {
           <div className="mr-10 cursor-pointer hover:underline mt-2">
             Contact us
           </div>
-          <div className="flex items-center mr-10 cursor-pointer hover:underline mt-2">
-            Login
-          </div>
-          <div className="cursor-pointer">
-            <div className="px-3 py-2 border border-red  text-black rounded-lg hover:bg-hover-red hover:text-white">
-              Register
-            </div>
+          <div className="mr-10 cursor-pointer hover:underline mt-2">Login</div>
+          <div className="mr-10 cursor-pointer hover:underline mt-2">
+            Register
           </div>
         </div>
       </div>
