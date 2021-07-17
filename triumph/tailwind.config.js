@@ -10,7 +10,7 @@ module.exports = {
       colors: {
         'tan': '#e0cbaf',
         'red': '#FF6347',
-        'hover-red': '#FF6145',
+        'hover-red': '#FF6F55',
         'disabled-red': '#D44C33',
       }, 
     },
