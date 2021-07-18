@@ -18,7 +18,11 @@ const Header = () => {
           <div className="mr-10 cursor-pointer hover:underline mt-2">
             Contact us
           </div>
-          <div className="mr-10 cursor-pointer hover:underline mt-2">Login</div>
+          <NextLink href="/login">
+            <div className="mr-10 cursor-pointer hover:underline mt-2">
+              Login
+            </div>
+          </NextLink>
           <div className="mr-10 cursor-pointer hover:underline mt-2">
             Register
           </div>
