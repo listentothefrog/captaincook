@@ -10,22 +10,18 @@ const Header = () => {
           <Image src={logo} className="cursor-pointer" />
         </NextLink>
       </div>
-      <div className="flex items-center justify-end w-92 mr-10">
+      <div className="flex items-center justify-end w-92">
         <div className="flex w-full items-center">
-          <div className="mr-10 cursor-pointer hover:underline mt-2">
-            Meet the team
-          </div>
-          <div className="mr-10 cursor-pointer hover:underline mt-2">
-            Contact us
-          </div>
           <NextLink href="/login">
             <div className="mr-10 cursor-pointer hover:underline mt-2">
               Login
             </div>
           </NextLink>
-          <div className="mr-10 cursor-pointer hover:underline mt-2">
-            Register
-          </div>
+          <NextLink href="/register">
+            <div className="mr-10 cursor-pointer hover:underline mt-2">
+              Register
+            </div>
+          </NextLink>
         </div>
       </div>
     </div>
