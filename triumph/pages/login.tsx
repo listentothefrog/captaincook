@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import NextHead from "next/head";
 import React from "react";
 
