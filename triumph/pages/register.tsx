@@ -64,7 +64,7 @@ const register = () => {
         <div className="">
           <button
             type="submit"
-            className="group relative flex justify-center py-2 px-5 border border-transparent text-sm font-medium rounded-md text-white bg-red hover:bg-hover-red focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="group relative flex justify-center py-2 px-10 border border-transparent text-sm font-medium rounded-md text-white bg-red hover:bg-hover-red focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Register
           </button>
