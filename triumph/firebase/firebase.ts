@@ -1,19 +1,10 @@
 import firebase from "firebase/app";
-import firebaseConfig from "./firebaseConfig";
 import "firebase/auth";
-import "firebase/analytics";
-import "firebase/performance";
+import firebaseConfig from "./firebaseConfig";
 
-// init firebase app
-if (!firebase.apps.length) {
+if (typeof window !== "undefined" && !firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
+  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
 }
 
-// analytics
-firebase.analytics();
-
-// performance
-firebase.performance();
-
-// auth
-export const auth = firebase.auth();
+export { firebase };
