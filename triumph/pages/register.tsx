@@ -46,6 +46,20 @@ const register = () => {
               placeholder="Password"
             />
           </div>
+          <div>
+            <label htmlFor="password" className="sr-only">
+              Password
+            </label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autoComplete="current-password"
+              required
+              className="appearance-none mt-5 relative block w-full px-3 py-2 border rounded-lg border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-hover-red  focus:border-red focus:z-10 sm:text-sm"
+              placeholder="Confirm Password"
+            />
+          </div>
         </div>
         <div className="flex items-center justify-between">
           <div className="text-sm">
