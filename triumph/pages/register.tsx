@@ -1,9 +1,10 @@
 import NextHead from "next/head";
 import React from "react";
+import NextLink from "next/link";
 
 const register = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="font-body min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <NextHead>
         <title>CaptainCook - Register</title>
         <meta
@@ -80,6 +81,16 @@ const register = () => {
           >
             Register
           </button>
+        </div>
+        <div className="flex items-center justify-center w-100">
+          <h1>
+            I am a member{" "}
+            <NextLink href="/login">
+              <span className="text-sm font-medium cursor-pointer  text-red hover:text-hover-red hover:underline">
+                Login!
+              </span>
+            </NextLink>
+          </h1>
         </div>
       </div>
     </div>

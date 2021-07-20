@@ -1,9 +1,10 @@
 import NextHead from "next/head";
 import React from "react";
+import NextLink from "next/link";
 
 const login = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="font-body min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <NextHead>
         <title>CaptainCook - Login</title>
         <meta name="description" content="Login to start cooking like a pro" />
@@ -47,7 +48,10 @@ const login = () => {
 
         <div className="flex items-center justify-between">
           <div className="text-sm ml-auto">
-            <a href="#" className="font-medium text-red hover:text-hover-red">
+            <a
+              href="#"
+              className="font-medium text-red hover:text-hover-red hover:underline"
+            >
               Forgot your password?
             </a>
           </div>
@@ -60,6 +64,16 @@ const login = () => {
           >
             Login
           </button>
+        </div>
+        <div className="flex items-center justify-center w-100">
+          <h1>
+            I am new user{" "}
+            <NextLink href="/register">
+              <span className="text-sm font-medium cursor-pointer  text-red hover:text-hover-red hover:underline">
+                Register!
+              </span>
+            </NextLink>
+          </h1>
         </div>
       </div>
     </div>
