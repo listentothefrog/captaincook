@@ -14,7 +14,7 @@ const withAuth =
     useEffect(() => {
       auth.onAuthStateChanged((authUser) => {
         if (!authUser) {
-          router.push("/signin");
+          router.push("/login");
         }
       });
     }, []);
