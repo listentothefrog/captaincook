@@ -1,10 +1,22 @@
 import firebase from "firebase/app";
 import "firebase/auth";
-import firebaseConfig from "./firebaseConfig";
 
-if (typeof window !== "undefined" && !firebase.apps.length) {
+const firebaseConfig = {
+  apiKey: "AIzaSyDuv9Xe_4hjYoVgPJ5tHi7RAeqV9avvg5A",
+  authDomain: "captaincook-dev.firebaseapp.com",
+  projectId: "captaincook-dev",
+  storageBucket: "captaincook-dev.appspot.com",
+  messagingSenderId: "853200581438",
+  appId: "1:853200581438:web:52eb92d91237394eb8b26f",
+  measurementId: "G-6P3GB3GPSL",
+};
+
+if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
-  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+} else {
+  firebase.app();
 }
 
-export { firebase };
+const auth = firebase.auth();
+
+export { auth };
