@@ -10,7 +10,7 @@ const AuthRoute: React.FC<IAuthRouteProps> = (props) => {
   const { children } = props;
 
   if (!auth.currentUser) {
-    return <Redirect to="/auth/signup" />;
+    return <Redirect to="/login" />;
   }
   return <div>{children}</div>;
 };
