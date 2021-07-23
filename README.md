@@ -33,8 +33,7 @@ This project is open for contibutions anyone with any experience can contribute 
 
 ## The Current Text Stack
 
-- React
-- Next Js (front-end)
+- React (frontend)
 - Firebase (backend)
 - Typescript
 
@@ -42,8 +41,7 @@ These are final candidates for the MVP.
 
 ## Refiend Text Stack aka The Beast Stack
 
-- React
-- Next Js (Front-end)
+- React (frontend)
 - GraphQL (API)
 - PostgreSQL (Database)
 
