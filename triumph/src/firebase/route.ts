@@ -5,7 +5,7 @@ import Dashboard from "../pages/Dashboard";
 // import UserProfile from "../pages/UserProfile"
 import HomePage from "../App";
 
-const routes: Route[] = [
+export const routes: Route[] = [
   {
     path: "/",
     exact: true,
