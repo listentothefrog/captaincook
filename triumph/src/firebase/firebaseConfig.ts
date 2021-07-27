@@ -1,10 +1,9 @@
 export const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
-  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
+  apiKey: "AIzaSyDuv9Xe_4hjYoVgPJ5tHi7RAeqV9avvg5A",
+  authDomain: "captaincook-dev.firebaseapp.com",
+  projectId: "captaincook-dev",
+  storageBucket: "captaincook-dev.appspot.com",
+  messagingSenderId: "853200581438",
+  appId: "1:853200581438:web:52eb92d91237394eb8b26f",
+  measurementId: "G-6P3GB3GPSL",
 };
