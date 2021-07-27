@@ -10,7 +10,7 @@ const Header = () => {
       </div>
       <div className="flex items-center justify-end w-92 mr-10">
         <div className="flex w-full items-center">
-          <Link to="/login">
+          <Link to={`/login`}>
             <div className="mr-10 cursor-pointer hover:underline mt-2 font-normal">
               Login
             </div>
