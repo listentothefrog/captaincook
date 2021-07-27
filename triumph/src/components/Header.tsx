@@ -2,7 +2,7 @@ import logo from "../images/logo-web.svg";
 import { Link } from "react-router-dom";
 // import IpageProps from "src/interfaces/page.interface";
 
-const Header = () => {
+const HeaderComponent = () => {
   return (
     <div className="font-body flex items-center justify-between w-screen h-16  bg-tan">
       <div className="mt-2 ml-4">
@@ -24,4 +24,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderComponent;
