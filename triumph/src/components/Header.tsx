@@ -6,7 +6,7 @@ const HeaderComponent = () => {
   return (
     <div className="font-body flex items-center justify-between w-screen h-16  bg-tan">
       <div className="mt-2 ml-4">
-        <img src={logo} className="cursor-pointer" />
+        <img src={logo} className="cursor-pointer" alt="logo" />
       </div>
       <div className="flex items-center justify-end w-92 mr-10">
         <div className="flex w-full items-center">
