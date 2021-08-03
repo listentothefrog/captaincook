@@ -5,13 +5,14 @@ const HeaderComponent = () => {
   return (
     <Flex
       justifyContent={"space-between"}
-      background={"tan"}
+      border={2}
+      borderBottom={"1px"}
       alignContent={"center"}
     >
       <Box marginTop={"2"} marginLeft={"4"}>
         <img src={logo} className="cursor-pointer" alt="logo" />
       </Box>
-      <Box className="flex items-center justify-end w-92 mr-10">
+      <Box>
         <Flex
           margin={"2"}
           width={"full"}
