@@ -15,7 +15,6 @@ import { useHistory, Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { auth } from "src/firebase/firebase";
 import "react-toastify/dist/ReactToastify.css";
-import firebase from "firebase/app";
 
 const RegisterComponent = () => {
   const [registering, setRegistering] = useState<boolean>(false);
@@ -44,20 +43,7 @@ const RegisterComponent = () => {
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         console.log(result);
-        toast.info(
-          "You have succefully created an account, an email verification link was sent to you inbox!",
-          {
-            position: "top-right",
-            autoClose: 4000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          }
-        );
-        firebase.auth().currentUser?.sendEmailVerification();
-        history.push("/login");
+        history.push("/dashboard");
       })
 
       .catch((err) => {
