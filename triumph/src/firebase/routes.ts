@@ -17,6 +17,13 @@ const routes: IRoute[] = [
     name: "Register Page",
     protected: false,
   },
+  {
+    path: "/login",
+    exact: true,
+    component: register,
+    name: "Login Page",
+    protected: false,
+  },
 ];
 
 export default routes;
