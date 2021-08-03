@@ -41,7 +41,7 @@ const LoginComponent = () => {
           draggable: true,
           progress: undefined,
         });
-        history.push("/");
+        history.push("/dashboard");
       })
 
       .catch((err) => {
