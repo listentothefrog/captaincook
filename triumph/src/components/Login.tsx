@@ -3,6 +3,7 @@ import {
   Button,
   Flex,
   FormControl,
+  FormLabel,
   Heading,
   Input,
   InputGroup,
@@ -84,6 +85,7 @@ const LoginComponent = () => {
             boxShadow="lg"
           >
             <FormControl id="Email" isRequired>
+              <FormLabel>Email</FormLabel>
               <InputGroup>
                 <InputLeftElement pointerEvents="none" />
                 <Input
@@ -95,6 +97,7 @@ const LoginComponent = () => {
               </InputGroup>
             </FormControl>
             <FormControl id="Password" isRequired>
+              <FormLabel>Password</FormLabel>
               <InputGroup>
                 <InputLeftElement pointerEvents="none" color="gray.300" />
                 <Input
@@ -111,7 +114,7 @@ const LoginComponent = () => {
               type="submit"
               variant="solid"
               onClick={signIntoAccount}
-              colorScheme="twitter"
+              backgroundColor={"#6c9e4f"}
               width="full"
             >
               Login
@@ -121,7 +124,7 @@ const LoginComponent = () => {
       </Stack>
       <Box>
         Don't have an account? {""}
-        <Link color="blue.500">Click here to create one!</Link>
+        <Link color={"#6c9e4f"}>Click here to create one!</Link>
       </Box>
     </Flex>
   );

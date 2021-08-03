@@ -3,6 +3,7 @@ import {
   Button,
   Flex,
   FormControl,
+  FormLabel,
   Heading,
   Input,
   InputGroup,
@@ -101,6 +102,7 @@ const RegisterComponent = () => {
             boxShadow="lg"
           >
             <FormControl id="Email" isRequired>
+              <FormLabel>Email</FormLabel>
               <InputGroup>
                 <InputLeftElement pointerEvents="none" />
                 <Input
@@ -112,6 +114,7 @@ const RegisterComponent = () => {
               </InputGroup>
             </FormControl>
             <FormControl id="Password" isRequired>
+              <FormLabel>Password</FormLabel>
               <InputGroup>
                 <InputLeftElement pointerEvents="none" color="gray.300" />
                 <Input
@@ -122,7 +125,8 @@ const RegisterComponent = () => {
                 />
               </InputGroup>
             </FormControl>
-            <FormControl id="Confirm Password" isRequired>
+            <FormControl id="Confirm-Password" isRequired>
+              <FormLabel>Confirm Password</FormLabel>
               <InputGroup>
                 <InputLeftElement pointerEvents="none" color="gray.300" />
                 <Input
@@ -139,7 +143,8 @@ const RegisterComponent = () => {
               type="submit"
               variant="solid"
               onClick={createAccount}
-              colorScheme="twitter"
+              backgroundColor={"#6c9e4f"}
+              color={"white"}
               width="full"
             >
               Register
@@ -149,7 +154,7 @@ const RegisterComponent = () => {
       </Stack>
       <Box>
         Already have an account? {""}
-        <Link color="blue.500">Login</Link>
+        <Link color={"#6c9e4f"}>Login</Link>
       </Box>
     </Flex>
   );
