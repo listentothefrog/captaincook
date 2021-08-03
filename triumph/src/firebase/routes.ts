@@ -1,6 +1,7 @@
 import IRoute from "src/interfaces/route";
 import login from "src/pages/auth/login";
 import register from "src/pages/auth/register";
+import dashboard from "src/pages/dashboard";
 import home from "src/pages/home";
 
 const routes: IRoute[] = [
@@ -9,6 +10,13 @@ const routes: IRoute[] = [
     exact: true,
     component: home,
     name: "Home Page",
+    protected: false,
+  },
+  {
+    path: "/dashboard",
+    exact: true,
+    component: dashboard,
+    name: "Dashbaard",
     protected: true,
   },
   {
