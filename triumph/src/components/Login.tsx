@@ -8,13 +8,13 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  Link,
   Stack,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { auth } from "src/firebase/firebase";
+import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
 const LoginComponent = () => {
@@ -125,7 +125,9 @@ const LoginComponent = () => {
       </Stack>
       <Box>
         Don't have an account? {""}
-        <Link color={"#6c9e4f"}>Click here to create one!</Link>
+        <Link to="/register" style={{ color: "#6c9e4f" }}>
+          Register
+        </Link>
       </Box>
     </Flex>
   );

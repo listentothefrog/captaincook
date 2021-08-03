@@ -8,11 +8,10 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  Link,
   Stack,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { auth } from "src/firebase/firebase";
 import "react-toastify/dist/ReactToastify.css";
@@ -45,7 +44,6 @@ const RegisterComponent = () => {
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         console.log(result);
-        firebase.auth().currentUser?.sendEmailVerification();
         toast.info(
           "You have succefully created an account, an email verification link was sent to you inbox!",
           {
@@ -58,6 +56,7 @@ const RegisterComponent = () => {
             progress: undefined,
           }
         );
+        firebase.auth().currentUser?.sendEmailVerification();
         history.push("/login");
       })
 
@@ -84,7 +83,7 @@ const RegisterComponent = () => {
       justifyContent="center"
       alignItems="center"
     >
-      <Box position={"absolute"} right={0} top={20}>
+      <Box right={0} top={20}>
         <ToastContainer />
       </Box>
       <Stack
@@ -154,7 +153,9 @@ const RegisterComponent = () => {
       </Stack>
       <Box>
         Already have an account? {""}
-        <Link color={"#6c9e4f"}>Login</Link>
+        <Link to="/login" style={{ color: "#6c9e4f" }}>
+          Login
+        </Link>
       </Box>
     </Flex>
   );
