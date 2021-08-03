@@ -116,6 +116,7 @@ const LoginComponent = () => {
               onClick={signIntoAccount}
               backgroundColor={"#6c9e4f"}
               width="full"
+              color={"white"}
             >
               Login
             </Button>
