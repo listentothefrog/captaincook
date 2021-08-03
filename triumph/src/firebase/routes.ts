@@ -1,4 +1,5 @@
 import IRoute from "src/interfaces/route";
+import login from "src/pages/auth/login";
 import register from "src/pages/auth/register";
 import home from "src/pages/home";
 
@@ -20,7 +21,7 @@ const routes: IRoute[] = [
   {
     path: "/login",
     exact: true,
-    component: register,
+    component: login,
     name: "Login Page",
     protected: false,
   },
