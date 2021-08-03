@@ -43,6 +43,7 @@ const RegisterComponent = () => {
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         console.log(result);
+        auth.currentUser?.sendEmailVerification();
         toast.info(
           "You have succefully created an account, an email verification link was sent to you inbox!",
           {
