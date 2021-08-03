@@ -1,5 +1,5 @@
 <a href="https://youtu.be/dQw4w9WgXcQ"><p align="center">
-<img src="https://raw.githubusercontent.com/listentothefrog/captaincook/8d24e0fe82013c52326b04d84a25960c92df646d/triumph/public/logo-web.svg"/>
+<img src="https://raw.githubusercontent.com/listentothefrog/captaincook/153c606b541947a98514a60c0977a7065b38d420/triumph/src/images/logo-web.svg"/>
 
 </p></a>
 <p align="center">
