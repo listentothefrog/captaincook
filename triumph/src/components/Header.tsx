@@ -4,8 +4,10 @@ import logo from "../images/logo-web.svg";
 const HeaderComponent = () => {
   return (
     <Flex
-      justifyContent={"space-between"}
+      justifyContent={"space-evenly"}
+      boxShadow="lg"
       border={2}
+      width={"100%"}
       borderBottom={"1px"}
       alignContent={"center"}
     >
@@ -13,26 +15,20 @@ const HeaderComponent = () => {
         <img src={logo} className="cursor-pointer" alt="logo" />
       </Box>
       <Box>
-        <Flex
-          margin={"2"}
-          width={"full"}
-          alignItems="center"
-          className="flex w-full items-center"
-        >
+        <Flex margin={"2"} width={"full"} alignItems="center">
           <Box
             marginRight={"2"}
             cursor={"pointer"}
             fontWeight={"medium"}
-            className="mr-10 cursor-pointer hover:underline mt-2 font-normal"
             fontFamily={"body"}
           >
             Login
           </Box>
           <Box
             margin={"2"}
+            cursor={"pointer"}
             fontWeight={"medium"}
             fontFamily={"body"}
-            className="mr-10 cursor-pointer hover:underline mt-2 font-normal"
           >
             Register
           </Box>
