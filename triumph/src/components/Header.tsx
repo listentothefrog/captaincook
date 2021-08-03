@@ -1,4 +1,5 @@
 import { Box, Flex } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import logo from "../images/logo-web.svg";
 
 const HeaderComponent = () => {
@@ -22,7 +23,7 @@ const HeaderComponent = () => {
             fontWeight={"medium"}
             fontFamily={"body"}
           >
-            Login
+            <Link to="/login">Login</Link>
           </Box>
           <Box
             margin={"2"}
@@ -30,7 +31,7 @@ const HeaderComponent = () => {
             fontWeight={"medium"}
             fontFamily={"body"}
           >
-            Register
+            <Link to="/register">Register</Link>
           </Box>
         </Flex>
       </Box>
