@@ -44,6 +44,7 @@ const RegisterComponent = () => {
       .then((result) => {
         console.log(result);
         auth.currentUser?.sendEmailVerification();
+        history.push("/login");
         toast.info(
           "You have succefully created an account, an email verification link was sent to you inbox!",
           {
