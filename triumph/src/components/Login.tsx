@@ -1,85 +1,129 @@
+import {
+  Box,
+  Button,
+  Flex,
+  FormControl,
+  Heading,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Link,
+  Stack,
+} from "@chakra-ui/react";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import { auth } from "src/firebase/firebase";
+import "react-toastify/dist/ReactToastify.css";
+
 const LoginComponent = () => {
+  const [authenticating, setAuthenticating] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string>("");
+  const history = useHistory();
+
+  const signIntoAccount = async () => {
+    if (error !== "") setError("");
+    setAuthenticating(true);
+
+    await auth
+      .signInWithEmailAndPassword(email, password)
+      .then((result) => {
+        console.log(result);
+        toast.info("Successful login!", {
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        history.push("/");
+      })
+
+      .catch((err) => {
+        console.log(err);
+        const message = err.message;
+        toast.error(message, {
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setAuthenticating(false);
+      });
+  };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div>
-          <img
-            className="mx-auto h-12 w-auto"
-            src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-            alt="Workflow"
-          />
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Sign in to your account
-          </h2>
-        </div>
-        <form className="mt-8 space-y-6" action="#" method="POST">
-          <input type="hidden" name="remember" defaultValue="true" />
-          <div className="rounded-md shadow-sm -space-y-px">
-            <div>
-              <label htmlFor="email-address" className="sr-only">
-                Email address
-              </label>
-              <input
-                id="email-address"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Email address"
-              />
-            </div>
-            <div>
-              <label htmlFor="password" className="sr-only">
-                Password
-              </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="current-password"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Password"
-              />
-            </div>
-          </div>
-
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <input
-                id="remember-me"
-                name="remember-me"
-                type="checkbox"
-                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-              />
-              <label
-                htmlFor="remember-me"
-                className="ml-2 block text-sm text-gray-900"
-              >
-                Remember me
-              </label>
-            </div>
-
-            <div className="text-sm">
-              <p className="font-medium text-indigo-600 hover:text-indigo-500">
-                Forgot your password?
-              </p>
-            </div>
-          </div>
-
-          <div>
-            <button
+    <Flex
+      flexDirection="column"
+      width="100wh"
+      height="100vh"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <Box position={"absolute"} right={0} top={20}>
+        <ToastContainer />
+      </Box>
+      <Stack
+        flexDir="column"
+        mb="2"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Heading>Login into your account</Heading>
+        <Box minW={{ base: "90%", md: "490px" }}>
+          <Stack
+            spacing={4}
+            p="1rem"
+            backgroundColor="whiteAlpha.900"
+            boxShadow="lg"
+          >
+            <FormControl id="Email" isRequired>
+              <InputGroup>
+                <InputLeftElement pointerEvents="none" />
+                <Input
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  type="email"
+                  placeholder="email address"
+                />
+              </InputGroup>
+            </FormControl>
+            <FormControl id="Password" isRequired>
+              <InputGroup>
+                <InputLeftElement pointerEvents="none" color="gray.300" />
+                <Input
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                  type="password"
+                  placeholder="password"
+                />
+              </InputGroup>
+            </FormControl>
+            <Button
+              borderRadius={4}
+              disabled={authenticating}
               type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              variant="solid"
+              onClick={signIntoAccount}
+              colorScheme="twitter"
+              width="full"
             >
-              Sign in
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+              Login
+            </Button>
+          </Stack>
+        </Box>
+      </Stack>
+      <Box>
+        Don't have an account? {""}
+        <Link color="blue.500">Click here to create one!</Link>
+      </Box>
+    </Flex>
   );
 };
-
 export default LoginComponent;
