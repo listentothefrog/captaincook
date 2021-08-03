@@ -57,7 +57,6 @@ const RegisterComponent = () => {
             progress: undefined,
           }
         );
-        history.push("/login");
       })
 
       .catch((err) => {
