@@ -7,8 +7,11 @@ import {
   ListItem,
   ListIcon,
   Button,
+  Flex,
+  Image,
 } from "@chakra-ui/react";
 import { CheckIcon } from "@chakra-ui/icons";
+import HomeCookIcon from "../images/HomeCook.svg";
 
 const PricingComponent = () => {
   return (
@@ -21,25 +24,36 @@ const PricingComponent = () => {
         rounded={"md"}
         overflow={"hidden"}
       >
-        <Stack textAlign={"center"} p={6} color={"gray.800"} align={"center"}>
-          <Text
-            fontSize={"sm"}
-            fontWeight={500}
-            bg={"green.50"}
-            p={2}
-            px={3}
-            color={"green.500"}
-            rounded={"full"}
-          >
-            Hobby
-          </Text>
-          <Stack direction={"row"} align={"center"} justify={"center"}>
-            <Text fontSize={"3xl"}>$</Text>
-            <Text fontSize={"6xl"} fontWeight={800}>
-              79
-            </Text>
-            <Text color={"gray.500"}>/month</Text>
-          </Stack>
+        <Stack
+          direction={"column"}
+          p={6}
+          color={"gray.800"}
+          align={"center"}
+          justify={"center"}
+        >
+          <Flex>
+            <Image src={HomeCookIcon} width={"75px"} height={"75px"} />
+            <Flex
+              direction={"column"}
+              align={"center"}
+              justifyContent={"space-evenly"}
+            >
+              <Flex>
+                <Text ml={2} mr={2} fontSize={"20px"} fontWeight={"bold"}>
+                  Home Cook
+                </Text>
+              </Flex>
+              <Flex mr={5}>
+                <Text fontSize={"12px"}>$</Text>
+                <Text fontSize={"18px"} fontWeight={"extrabold"}>
+                  0
+                </Text>
+                <Text color={"gray"} fontWeight={"14px"} fontSize={"13px"}>
+                  /month
+                </Text>
+              </Flex>
+            </Flex>
+          </Flex>
         </Stack>
 
         <Box bg={"gray.50"} px={6} py={10}>
@@ -67,13 +81,13 @@ const PricingComponent = () => {
             w={"full"}
             bg={"green.400"}
             color={"white"}
-            rounded={"xl"}
+            rounded={"sm"}
             boxShadow={"0 5px 20px 0px rgb(72 187 120 / 43%)"}
             _hover={{
               bg: "#6c9e4f",
             }}
           >
-            Start your trial
+            Start using 👉
           </Button>
         </Box>
       </Box>
