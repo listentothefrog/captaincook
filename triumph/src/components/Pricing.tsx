@@ -11,9 +11,18 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { CheckIcon } from "@chakra-ui/icons";
-import HomeCookIcon from "../images/HomeCook.svg";
+import IPricingProps from "src/interfaces/pricing";
 
-const PricingComponent = () => {
+const PricingComponent: React.FC<IPricingProps> = (props) => {
+  const {
+    plan_title,
+    plan_price,
+    plan_image,
+    plan_perks_1,
+    plan_perks_2,
+    plan_perks_3,
+    plan_perks_4,
+  } = props;
   return (
     <Center py={6}>
       <Box
@@ -32,7 +41,7 @@ const PricingComponent = () => {
           justify={"center"}
         >
           <Flex>
-            <Image src={HomeCookIcon} width={"75px"} height={"75px"} />
+            <Image src={plan_image} width={"75px"} height={"75px"} />
             <Flex
               direction={"column"}
               align={"center"}
@@ -40,13 +49,13 @@ const PricingComponent = () => {
             >
               <Flex>
                 <Text ml={2} mr={2} fontSize={"20px"} fontWeight={"bold"}>
-                  Home Cook
+                  {plan_title}
                 </Text>
               </Flex>
               <Flex mr={5}>
                 <Text fontSize={"12px"}>$</Text>
                 <Text fontSize={"18px"} fontWeight={"extrabold"}>
-                  0
+                  {plan_price}
                 </Text>
                 <Text color={"gray"} fontWeight={"14px"} fontSize={"13px"}>
                   /month
@@ -60,19 +69,19 @@ const PricingComponent = () => {
           <List spacing={3}>
             <ListItem>
               <ListIcon as={CheckIcon} color="green.400" />
-              5.000 page views
+              {plan_perks_1}
             </ListItem>
             <ListItem>
               <ListIcon as={CheckIcon} color="green.400" />
-              50 automation executions
+              {plan_perks_2}
             </ListItem>
             <ListItem>
               <ListIcon as={CheckIcon} color="green.400" />
-              50 identified users
+              {plan_perks_3}
             </ListItem>
             <ListItem>
               <ListIcon as={CheckIcon} color="green.400" />
-              All features
+              {plan_perks_4}
             </ListItem>
           </List>
 
