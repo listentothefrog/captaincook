@@ -1,11 +1,17 @@
+import { useHistory } from "react-router";
 import { auth } from "src/firebase/firebase";
 
-const dashboard = () => {
+const Dashboard = () => {
+  const history = useHistory();
+  const signOutUser = async () => {
+    await auth.signOut();
+    history.push("/");
+  };
   return (
     <div>
-      dashboard <button onClick={() => auth.signOut()}>Sign Out</button>
+      dashboard <button onClick={signOutUser}>Sign Out</button>
     </div>
   );
 };
 
-export default dashboard;
+export default Dashboard;
