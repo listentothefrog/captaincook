@@ -6,6 +6,4 @@ export default interface IPricingProps {
   plan_perks_2: string;
   plan_perks_3: string;
   plan_perks_4?: string;
-  plan_perks_5?: string;
-  plan_perks_6?: string;
 }
