@@ -41,7 +41,7 @@ const home = () => {
       </Flex>
       <Flex
         justifyContent={"space-around"}
-        width={"45%"}
+        width={"47.5%"}
         mt={"4"}
         alignItems={"center"}
       >
@@ -55,7 +55,7 @@ const home = () => {
             <Link to="/register">Create an account</Link>
           </Button>
           <Button color={"white"} colorScheme={"purple"}>
-            Fund CaptainCook
+            Support CaptainCook
           </Button>
         </Box>
       </Flex>
