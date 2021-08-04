@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import HeaderComponent from "src/components/Header";
+import PricingComponent from "src/components/Pricing";
 
 const home = () => {
   return (
@@ -60,6 +61,11 @@ const home = () => {
             />
           </Box>
         </Flex>
+      </Flex>
+      <Flex w={"100%"} justifyContent={"space-evenly"}>
+        <PricingComponent />
+        <PricingComponent />
+        <PricingComponent />
       </Flex>
     </Box>
   );
