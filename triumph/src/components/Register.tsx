@@ -128,7 +128,7 @@ const RegisterComponent = () => {
               type="submit"
               variant="solid"
               onClick={createAccount}
-              backgroundColor={"#6c9e4f"}
+              backgroundColor={"green.400"}
               color={"white"}
               width="full"
             >
@@ -139,7 +139,7 @@ const RegisterComponent = () => {
       </Stack>
       <Box>
         Already have an account? {""}
-        <Link to="/login" style={{ color: "#6c9e4f" }}>
+        <Link to="/login" style={{ color: "#48BB78" }}>
           Login
         </Link>
       </Box>

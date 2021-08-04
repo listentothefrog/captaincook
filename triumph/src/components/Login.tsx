@@ -114,7 +114,7 @@ const LoginComponent = () => {
               type="submit"
               variant="solid"
               onClick={signIntoAccount}
-              backgroundColor={"#6c9e4f"}
+              backgroundColor={"green.400"}
               width="full"
               color={"white"}
             >
@@ -125,7 +125,7 @@ const LoginComponent = () => {
       </Stack>
       <Box>
         Don't have an account? {""}
-        <Link to="/register" style={{ color: "#6c9e4f" }}>
+        <Link to="/register" style={{ color: "#48BB78" }}>
           Register
         </Link>
       </Box>
