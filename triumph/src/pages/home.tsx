@@ -1,10 +1,19 @@
-import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Image,
+  Spinner,
+  Text,
+} from "@chakra-ui/react";
+import React, { Suspense } from "react";
 import { Link } from "react-router-dom";
 import HeaderComponent from "src/components/Header";
-import PricingComponent from "src/components/Pricing";
 import HomeCookIcon from "../images/HomeCook.svg";
 import MasterChefIcon from "../images/MasterChef.svg";
 import ProChefIcon from "../images/ProChef.svg";
+const PricingComponent = React.lazy(() => import("src/components/Pricing"));
 
 const home = () => {
   return (
@@ -86,37 +95,49 @@ const home = () => {
           <br /> and fits your style.
         </Text>
       </Flex>
-      <Flex w={"100%"} mt={4} justifyContent={"space-evenly"}>
-        <PricingComponent
-          plan_title={"Home Chef"}
-          plan_image={HomeCookIcon}
-          plan_price={0}
-          plan_perks_1={"Store up to 50 recipes in your cook list."}
-          plan_perks_2={"Access your recipes from any device."}
-          plan_perks_3={"Get recommendations for foods to cook."}
-          plan_perks_4={"Organise your recipes on a Kanban board."}
-        />
-        <PricingComponent
-          plan_title={"Pro Chef"}
-          plan_image={ProChefIcon}
-          plan_price={5}
-          plan_perks_1={"All the perks from the 'Home Chef' Plan."}
-          plan_perks_2={"Store up to 100 recipes in your cook list."}
-          plan_perks_3={"Get tips and tricks from other Pro Chef's."}
-          plan_perks_4={"Get access to exclusive recipes."}
-        />
-        <PricingComponent
-          plan_title={"Master Chef"}
-          plan_image={MasterChefIcon}
-          plan_price={25}
-          plan_perks_1={
-            "All the perks from 'Home Cook' and 'Pro Chef' plans are included."
-          }
-          plan_perks_2={"Store up to 1000 recipes in your cook list."}
-          plan_perks_3={"Get a full list of the tools to make a great meal."}
-          plan_perks_4={"Share you recipies with the entire world."}
-        />
-      </Flex>
+      <Suspense
+        fallback={
+          <Spinner
+            thickness="3px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="#6c9e4f"
+            size="md"
+          />
+        }
+      >
+        <Flex w={"100%"} mt={4} justifyContent={"space-evenly"}>
+          <PricingComponent
+            plan_title={"Home Chef"}
+            plan_image={HomeCookIcon}
+            plan_price={0}
+            plan_perks_1={"Store up to 50 recipes in your cook list."}
+            plan_perks_2={"Access your recipes from any device."}
+            plan_perks_3={"Get recommendations for foods to cook."}
+            plan_perks_4={"Organise your recipes on a Kanban board."}
+          />
+          <PricingComponent
+            plan_title={"Pro Chef"}
+            plan_image={ProChefIcon}
+            plan_price={5}
+            plan_perks_1={"All the perks from the 'Home Chef' Plan."}
+            plan_perks_2={"Store up to 100 recipes in your cook list."}
+            plan_perks_3={"Get tips and tricks from other Pro Chef's."}
+            plan_perks_4={"Get access to exclusive recipes."}
+          />
+          <PricingComponent
+            plan_title={"Master Chef"}
+            plan_image={MasterChefIcon}
+            plan_price={25}
+            plan_perks_1={
+              "All the perks from 'Home Cook' and 'Pro Chef' plans are included."
+            }
+            plan_perks_2={"Store up to 1000 recipes in your cook list."}
+            plan_perks_3={"Get a full list of the tools to make a great meal."}
+            plan_perks_4={"Share you recipies with the entire world."}
+          />
+        </Flex>
+      </Suspense>
     </Box>
   );
 };
