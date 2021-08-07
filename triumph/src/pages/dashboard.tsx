@@ -1,16 +1,13 @@
-import { useHistory } from "react-router";
-import { auth } from "src/firebase/firebase";
+import { Box } from "@chakra-ui/react";
+import SearchComponent from "src/components/DashBoard/Search";
+import HeaderComponent from "src/components/Header";
 
 const Dashboard = () => {
-  const history = useHistory();
-  const signOutUser = async () => {
-    await auth.signOut();
-    history.push("/");
-  };
   return (
-    <div>
-      dashboard <button onClick={signOutUser}>Sign Out</button>
-    </div>
+    <Box>
+      <HeaderComponent />
+      <SearchComponent />
+    </Box>
   );
 };
 
