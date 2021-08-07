@@ -6,9 +6,10 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  Spinner,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import RecipesCardComponent from "./RecipesCard";
+import React, { Suspense, useEffect, useState } from "react";
+const RecipesCardComponent = React.lazy(() => import("./RecipesCard"));
 
 const SearchComponent = () => {
   const [recipes, setRecipes] = useState([]);
@@ -58,11 +59,21 @@ const SearchComponent = () => {
         </Flex>
       </Flex>
       {!null ? (
-        <>
+        <Suspense
+          fallback={
+            <Spinner
+              thickness="3px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="#6c9e4f"
+              size="md"
+            />
+          }
+        >
           {recipes.map((recipe) => (
             <RecipesCardComponent />
           ))}
-        </>
+        </Suspense>
       ) : (
         "Type something and all of the results will introduce themselves."
       )}
