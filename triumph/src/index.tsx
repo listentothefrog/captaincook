@@ -5,6 +5,7 @@ import "@fontsource/montserrat/700.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+require("dotenv").config();
 
 // custom fonts
 const theme = extendTheme({
