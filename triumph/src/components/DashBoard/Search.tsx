@@ -14,17 +14,28 @@ const RecipesCardComponent = React.lazy(() => import("./RecipesCard"));
 
 const SearchComponent = () => {
   const [recipes, setRecipes] = useState([]);
+  const [search, setSearch] = useState<string>("");
+  const [query, setQuery] = useState<string>("");
   useEffect(() => {
     getRecipes();
-  }, []);
+  }, [query]);
 
   const getRecipes = async () => {
     const response = await axios.get(
-      `https://api.edamam.com/api/recipes/v2?type=public&q=Panner&app_id=8232891e&app_key=9dad9dd4911a07651dea427243c50b52`
+      `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=8232891e&app_key=9dad9dd4911a07651dea427243c50b52`
     );
     const data = await response.data;
     setRecipes(data.hits);
     console.log(data.hits);
+  };
+
+  const updateSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+    console.log(search);
+  };
+
+  const getSearch = () => {
+    setQuery(search);
   };
   return (
     <Box>
@@ -42,7 +53,12 @@ const SearchComponent = () => {
               <FormControl id="" isRequired>
                 <InputGroup>
                   <InputLeftElement pointerEvents="none" />
-                  <Input type="" placeholder="Type something...." />
+                  <Input
+                    type="string"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder="Type something...."
+                  />
                 </InputGroup>
               </FormControl>
             </Flex>
@@ -51,6 +67,7 @@ const SearchComponent = () => {
             borderRadius={4}
             type="submit"
             variant="solid"
+            onClick={getSearch}
             backgroundColor={"green.400"}
             width="100px"
             color={"white"}
