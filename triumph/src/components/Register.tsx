@@ -25,7 +25,7 @@ const RegisterComponent = () => {
   const history = useHistory();
 
   const createAccount = async () => {
-    if (password !== confirmPassoword)
+    if (password !== confirmPassoword) {
       toast.error("Password's don't match", {
         position: "top-right",
         autoClose: 5000,
@@ -35,6 +35,8 @@ const RegisterComponent = () => {
         draggable: true,
         progress: undefined,
       });
+      setRegistering(false);
+    }
 
     if (error !== "") setError("");
     setRegistering(true);
