@@ -73,18 +73,26 @@ const SearchComponent = () => {
         >
           {recipes.map((recipe: any) => (
             <RecipesCardComponent
-              key={recipe.recipe.label}
+              key={recipe.recipe.calories}
               title={recipe.recipe.label}
               image={recipe.recipe.image}
               calories={recipe.recipe.calories}
               source={recipe.recipe.source}
               url={recipe.recipe.url}
-              ingredient={recipe.recipe.ingredientLines}
+              ingredients={recipe.recipe.ingredients}
+              shareAs={recipe.recipe.shareAs}
             />
           ))}
         </Suspense>
       ) : (
-        "Type something and all of the results will introduce themselves."
+        <Flex
+          alignItems={"center"}
+          width={"100%"}
+          height={"90vh"}
+          justifyContent={"center"}
+        >
+          Type something and all of the results will introduce themselves.
+        </Flex>
       )}
     </Box>
   );

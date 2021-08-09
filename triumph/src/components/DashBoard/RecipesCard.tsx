@@ -1,10 +1,20 @@
-import { CopyIcon } from "@chakra-ui/icons";
-import { Box, Flex, Heading, Image, Link, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Image,
+  Link,
+  Text,
+  useClipboard,
+} from "@chakra-ui/react";
 import React from "react";
 import IRecipeProps from "src/interfaces/recipe";
 
 const RecipesCardComponent: React.FC<IRecipeProps> = (props) => {
-  const { title, image, source, ingredient, calories, url } = props;
+  const { title, image, source, ingredients, calories, url, shareAs } = props;
+  const { hasCopied, onCopy } = useClipboard(shareAs);
+
   return (
     <Flex
       mr={5}
@@ -26,7 +36,7 @@ const RecipesCardComponent: React.FC<IRecipeProps> = (props) => {
               height={"40px"}
               alt={"image"}
             />
-            <Link>
+            <Link href={url}>
               <Heading ml={"5"} fontSize="xl">
                 {title}
               </Heading>
@@ -36,13 +46,15 @@ const RecipesCardComponent: React.FC<IRecipeProps> = (props) => {
             <Text color={"#707070"}>{source}</Text>
           </Flex>
         </Flex>
-        <Flex align="center">
+        <Flex flexDir={"row"}>
           <Text flex={1} mt={4}>
-            {ingredient}
+            {ingredients.map((ingredient: any) => (
+              <Box key={"label" + ingredient.text}>{ingredient.text}</Box>
+            ))}
           </Text>
         </Flex>
       </Box>
-      <Flex alignItems={"flex-start"}>
+      <Flex position={"absolute"} right={30}>
         <Text
           background={"green.400"}
           pt={1.5}
@@ -56,8 +68,14 @@ const RecipesCardComponent: React.FC<IRecipeProps> = (props) => {
         </Text>
       </Flex>
       <Flex alignItems={"flex-end"}>
-        <CopyIcon />
-        {url}
+        <Button
+          background={"green.400"}
+          color={"white"}
+          onClick={onCopy}
+          ml={2}
+        >
+          {hasCopied ? "Copied" : "Copy"}
+        </Button>
       </Flex>
     </Flex>
   );
