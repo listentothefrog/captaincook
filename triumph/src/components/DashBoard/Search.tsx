@@ -8,6 +8,7 @@ import {
   InputLeftElement,
   Spinner,
 } from "@chakra-ui/react";
+import axios from "axios";
 import React, { Suspense, useEffect, useState } from "react";
 const RecipesCardComponent = React.lazy(() => import("./RecipesCard"));
 
@@ -18,10 +19,10 @@ const SearchComponent = () => {
   }, []);
 
   const getRecipes = async () => {
-    const response = await fetch(
+    const response = await axios.get(
       `https://api.edamam.com/api/recipes/v2?type=public&q=Panner&app_id=8232891e&app_key=9dad9dd4911a07651dea427243c50b52`
     );
-    const data = await response.json();
+    const data = await response.data;
     setRecipes(data.hits);
     console.log(data.hits);
   };
@@ -70,8 +71,16 @@ const SearchComponent = () => {
             />
           }
         >
-          {recipes.map((recipe) => (
-            <RecipesCardComponent />
+          {recipes.map((recipe: any) => (
+            <RecipesCardComponent
+              key={recipe.recipe.label}
+              title={recipe.recipe.label}
+              image={recipe.recipe.image}
+              calories={recipe.recipe.calories}
+              source={recipe.recipe.source}
+              url={recipe.recipe.url}
+              ingredient={recipe.recipe.ingredientLines}
+            />
           ))}
         </Suspense>
       ) : (
