@@ -3,6 +3,7 @@ import {
   Button,
   Flex,
   FormControl,
+  Heading,
   Input,
   InputGroup,
   InputLeftElement,
@@ -88,6 +89,15 @@ const SearchComponent = () => {
             />
           }
         >
+          <Heading
+            fontWeight={"extrabold"}
+            fontSize={"2xl"}
+            mr={5}
+            ml={5}
+            mt={4}
+          >
+            Your feed
+          </Heading>
           {recipes.map((recipe: any) => (
             <RecipesCardComponent
               key={recipe.recipe.calories}
