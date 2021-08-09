@@ -3,6 +3,7 @@ export default interface IRecipeProps {
   image: any;
   source: string;
   url: string;
-  ingredient: string;
+  ingredients: any;
   calories: number;
+  shareAs: string;
 }
