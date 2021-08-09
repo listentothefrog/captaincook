@@ -47,11 +47,11 @@ const RecipesCardComponent: React.FC<IRecipeProps> = (props) => {
           </Flex>
         </Flex>
         <Flex flexDir={"row"}>
-          <Text flex={1} mt={4}>
+          <Box flex={1} mt={4}>
             {ingredients.map((ingredient: any) => (
               <Box key={"label" + ingredient.text}>{ingredient.text}</Box>
             ))}
-          </Text>
+          </Box>
         </Flex>
       </Box>
       <Flex position={"absolute"} right={30}>
