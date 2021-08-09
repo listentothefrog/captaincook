@@ -9,6 +9,7 @@
     "@emotion/styled": "^11.3.0",
     "@fontsource/montserrat": "^4.5.0",
     "@fontsource/poppins": "^4.5.0",
+    "axios": "^0.21.1",
     "firebase": "^8.8.0",
     "formik": "^2.2.9",
     "framer-motion": "^4.1.17",
@@ -45,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/node": "^12.20.16",
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
