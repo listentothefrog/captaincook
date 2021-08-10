@@ -3,6 +3,7 @@ import { Spinner } from "@chakra-ui/spinner";
 import React, { Suspense } from "react";
 import { Link } from "react-router-dom";
 import HeaderComponent from "src/components/Header";
+import BreadCurry from "../images/bread_and_curry.jpeg";
 import HomeCookIcon from "../images/HomeCook.svg";
 import MasterChefIcon from "../images/MasterChef.svg";
 import ProChefIcon from "../images/ProChef.svg";
@@ -15,7 +16,7 @@ const home = () => {
       <Flex
         justifyContent={"space-evenly"}
         width={"100%"}
-        height={"100vh"}
+        height={"90vh"}
         alignItems={"center"}
         background={"#f5f5f5"}
         alignContent={"center"}
@@ -38,12 +39,7 @@ const home = () => {
             alignItems={"center"}
           >
             <Box>
-              <Button
-                mr={"4"}
-                color={"white"}
-                background={"green.400"}
-                colorScheme={"whatsapp"}
-              >
+              <Button mr={"4"} color={"white"} background={"green.400"}>
                 <Link to="/register">Create an account</Link>
               </Button>
               <Button color={"white"} colorScheme={"purple"}>
@@ -52,13 +48,16 @@ const home = () => {
             </Box>
           </Flex>
         </Flex>
-        <Flex height={"80vh"} alignContent={"center"} justifyContent={"center"}>
+        <Flex
+          height={"60vh"}
+          width={"50vh"}
+          alignContent={"center"}
+          justifyContent={"center"}
+        >
           <Box>
             <Image
-              src={
-                "https://images.unsplash.com/photo-1517244683847-7456b63c5969?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
-              }
-              maxWidth={"100%"}
+              src={BreadCurry}
+              width={"100%"}
               height={"100%"}
               alt={"Sweet"}
               boxShadow="lg"

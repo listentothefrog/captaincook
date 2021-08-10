@@ -18,7 +18,13 @@ const HeaderComponent = () => {
     >
       <Box marginTop={"2"} marginLeft={"4"}>
         <Link to="/">
-          <img src={logo} className="cursor-pointer" alt="logo" />
+          <img
+            src={logo}
+            className="cursor-pointer"
+            alt="logo"
+            width={"100%"}
+            height={"100%"}
+          />
         </Link>
       </Box>
       <Box>
