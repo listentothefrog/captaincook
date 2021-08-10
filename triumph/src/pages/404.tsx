@@ -29,7 +29,7 @@ const pageNotFound = () => {
       >
         <Link to="/">
           <Button background={"green.400"} color={"white"}>
-            Return Home
+            Return to Home
           </Button>
         </Link>
       </Flex>
