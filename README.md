@@ -22,6 +22,13 @@
 
 CaptainCook is where you can organize your recipes. Chef's can create a recipie and add ingredients to that recipe and can organize their recipes on a Kanban board. Chef's can also look up recipes and add it to their "cook list", their is also a recommended page where there will be a feed of recommended food where they can try out and add it to their "cook list".
 
+## Status
+
+- [x] Private Alpha: We are testing CaptainCook with a closed set of moms and chefs.
+- [] Public Alpha: We are expanding our user base, and anyone can visit our product.
+- [] Public Beta: Stable enough, and anyone who is not an expert can use our product.
+- [] Public: Production-ready and anyone can use our product.
+
 ## Branches
 
 - dev => development anyone can make a pr to this branch
