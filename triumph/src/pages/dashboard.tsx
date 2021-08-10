@@ -1,4 +1,5 @@
-import { Box, Spinner } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+import { Spinner } from "@chakra-ui/spinner";
 import React, { Suspense } from "react";
 const HeaderComponent = React.lazy(() => import("src/components/Header"));
 const SearchComponent = React.lazy(

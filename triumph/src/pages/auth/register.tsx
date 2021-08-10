@@ -1,4 +1,4 @@
-import { Spinner } from "@chakra-ui/react";
+import { Spinner } from "@chakra-ui/spinner";
 import React, { Suspense } from "react";
 import { Redirect } from "react-router-dom";
 import { auth } from "src/firebase/firebase";

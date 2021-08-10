@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Route, RouteComponentProps, Switch } from "react-router-dom";
 import { auth } from "./firebase/firebase";
-import { Spinner } from "@chakra-ui/react";
+import { Spinner } from "@chakra-ui/spinner";
 import routes from "./firebase/routes";
 import AuthRoute from "./components/AuthRoute";
 

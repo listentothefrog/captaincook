@@ -7,12 +7,11 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  Spinner,
 } from "@chakra-ui/react";
+import { Spinner } from "@chakra-ui/spinner";
 import axios from "axios";
 import React, { Suspense, useEffect, useState } from "react";
 const RecipesCardComponent = React.lazy(() => import("./RecipesCard"));
-
 const SearchComponent = () => {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState<string>("");

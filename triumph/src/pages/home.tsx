@@ -1,12 +1,5 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Image,
-  Spinner,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Spinner } from "@chakra-ui/spinner";
 import React, { Suspense } from "react";
 import { Link } from "react-router-dom";
 import HeaderComponent from "src/components/Header";
