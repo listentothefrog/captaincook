@@ -1,4 +1,5 @@
 import IRoute from "src/interfaces/route";
+import pageNotFound from "src/pages/404";
 import login from "src/pages/auth/login";
 import register from "src/pages/auth/register";
 import dashboard from "src/pages/dashboard";
@@ -31,6 +32,13 @@ const routes: IRoute[] = [
     exact: true,
     component: login,
     name: "Login Page",
+    protected: false,
+  },
+  {
+    path: "*",
+    exact: true,
+    component: pageNotFound,
+    name: "Page Not Found",
     protected: false,
   },
 ];
