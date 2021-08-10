@@ -1,6 +1,6 @@
 import { Box, Spinner } from "@chakra-ui/react";
 import React, { Suspense } from "react";
-import HeaderComponent from "src/components/Header";
+const HeaderComponent = React.lazy(() => import("src/components/Header"));
 const SearchComponent = React.lazy(
   () => import("src/components/DashBoard/Search")
 );
@@ -8,7 +8,6 @@ const SearchComponent = React.lazy(
 const Dashboard = () => {
   return (
     <Box>
-      <HeaderComponent />
       <Suspense
         fallback={
           <Spinner
@@ -20,6 +19,7 @@ const Dashboard = () => {
           />
         }
       >
+        <HeaderComponent />
         <SearchComponent />
       </Suspense>
     </Box>
