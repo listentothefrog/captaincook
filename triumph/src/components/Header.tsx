@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../images/logo-web.svg";
 import { auth } from "src/firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { SettingsIcon } from "@chakra-ui/icons";
 
 const HeaderComponent = () => {
   const [user] = useAuthState(auth);
@@ -34,6 +35,15 @@ const HeaderComponent = () => {
               auth.currentUser?.email
             ) : (
               <Link to="/register">Register</Link>
+            )}
+          </Box>
+          <Box margin={"2"} ml={2} fontWeight={"medium"} fontFamily={"body"}>
+            {user ? (
+              <Link to="/settings">
+                <SettingsIcon />
+              </Link>
+            ) : (
+              ""
             )}
           </Box>
         </Flex>
