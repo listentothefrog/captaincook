@@ -24,10 +24,10 @@ CaptainCook is where you can organize your recipes. Chef's can create a recipie 
 
 ## Status
 
-- [x] Private Alpha: We are testing CaptainCook with a closed set of moms and chefs.
-- [] Public Alpha: We are expanding our user base, and anyone can visit our product.
-- [] Public Beta: Stable enough, and anyone who is not an expert can use our product.
-- [] Public: Production-ready and anyone can use our product.
+- [ ] Private Alpha: We are testing CaptainCook with a closed set of moms and chefs.
+- [ ] Public Alpha: We are expanding our user base, and anyone can visit our product.
+- [ ] Public Beta: Stable enough, and anyone who is not an expert can use our product.
+- [ ] Public: Production-ready and anyone can use our product.
 
 ## Branches
 
