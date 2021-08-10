@@ -16,7 +16,9 @@ const HeaderComponent = () => {
       alignContent={"center"}
     >
       <Box marginTop={"2"} marginLeft={"4"}>
-        <img src={logo} className="cursor-pointer" alt="logo" />
+        <Link to="/">
+          <img src={logo} className="cursor-pointer" alt="logo" />
+        </Link>
       </Box>
       <Box>
         <Flex margin={"2"} width={"full"} alignItems="center">
