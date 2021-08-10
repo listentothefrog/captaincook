@@ -21,7 +21,11 @@ const HeaderComponent = () => {
       <Box>
         <Flex margin={"2"} width={"full"} alignItems="center">
           <Box marginRight={"2"} fontWeight={"medium"} fontFamily={"body"}>
-            {user ? "" : <Link to="/login">Login</Link>}
+            {user ? (
+              <Link to="/dashboard">Dashboard</Link>
+            ) : (
+              <Link to="/login">Login</Link>
+            )}
           </Box>
           <Box margin={"2"} fontWeight={"medium"} fontFamily={"body"}>
             {user ? (
