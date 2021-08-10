@@ -41,7 +41,12 @@ const PricingComponent: React.FC<IPricingProps> = (props) => {
           justify={"center"}
         >
           <Flex>
-            <Image src={plan_image} width={"75px"} height={"75px"} />
+            <Image
+              src={plan_image}
+              width={"75px"}
+              height={"75px"}
+              alt={"Price-icon"}
+            />
             <Flex
               direction={"column"}
               align={"center"}
