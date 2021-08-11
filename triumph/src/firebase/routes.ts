@@ -4,6 +4,7 @@ import login from "src/pages/auth/login";
 import register from "src/pages/auth/register";
 import dashboard from "src/pages/dashboard";
 import home from "src/pages/home";
+import settings from "src/pages/settings/settings";
 
 const routes: IRoute[] = [
   {
@@ -33,6 +34,13 @@ const routes: IRoute[] = [
     component: login,
     name: "Login Page",
     protected: false,
+  },
+  {
+    path: "/settings",
+    exact: true,
+    component: settings,
+    name: "Settings Page",
+    protected: true,
   },
   {
     path: "*",
