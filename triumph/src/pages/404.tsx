@@ -1,5 +1,4 @@
 import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
-import { linear } from "popmotion";
 import { Link } from "react-router-dom";
 import Lost from "../images/lost.svg";
 
