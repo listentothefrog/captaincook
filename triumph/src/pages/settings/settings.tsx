@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import React, { Suspense } from "react";
 import { Spinner } from "@chakra-ui/spinner";
-const Account = React.lazy(() => import("src/components/Account"));
+const Account = React.lazy(() => import("src/components/Settings/Account"));
 
 const settings = () => {
   return (
