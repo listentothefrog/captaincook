@@ -37,7 +37,7 @@ const Account = () => {
     <Flex
       alignItems={"center"}
       justifyContent={"center"}
-      width={"50vh"}
+      width={"70vh"}
       flexDirection={"column"}
       height={"100%"}
     >
