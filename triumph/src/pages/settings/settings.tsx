@@ -1,4 +1,4 @@
-import { Box, Flex, Heading } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import React, { Suspense } from "react";
 import { Spinner } from "@chakra-ui/spinner";
 const Account = React.lazy(() => import("src/components/Account"));
@@ -9,7 +9,7 @@ const settings = () => {
       alignItems={"center"}
       justifyContent={"center"}
       width={"100%"}
-      height={"90vh"}
+      height={"100vh"}
     >
       <Suspense
         fallback={
