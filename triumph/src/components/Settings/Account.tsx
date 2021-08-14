@@ -2,21 +2,10 @@ import {
   Box,
   Button,
   Flex,
-  FormControl,
-  FormLabel,
   Heading,
   Input,
-  InputGroup,
-  InputLeftElement,
   Text,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
   useDisclosure,
-  Link,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
