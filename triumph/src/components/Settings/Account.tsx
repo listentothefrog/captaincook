@@ -7,14 +7,12 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router-dom";
 import { auth } from "src/firebase/firebase";
 
 const Account = () => {
   const [user] = useAuthState(auth);
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const history = useHistory();
 
