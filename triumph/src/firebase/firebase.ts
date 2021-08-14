@@ -9,4 +9,4 @@ export const auth = firebase.auth();
 
 firebase.analytics();
 
-export default { auth };
+export default firebase;
