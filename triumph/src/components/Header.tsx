@@ -38,7 +38,7 @@ const HeaderComponent = () => {
           </Box>
           <Box margin={"2"} fontWeight={"medium"} fontFamily={"body"}>
             {user ? (
-              auth.currentUser?.email
+              <Link to="/todo">Todos</Link>
             ) : (
               <Link to="/register">Register</Link>
             )}
@@ -46,7 +46,8 @@ const HeaderComponent = () => {
           <Box margin={"2"} ml={2} fontWeight={"medium"} fontFamily={"body"}>
             {user ? (
               <Link to="/settings">
-                <SettingsIcon />
+                {user.email}
+                <SettingsIcon ml={2} />
               </Link>
             ) : (
               ""
