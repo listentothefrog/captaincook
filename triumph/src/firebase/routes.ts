@@ -5,7 +5,7 @@ import register from "src/pages/auth/register";
 import dashboard from "src/pages/dashboard";
 import home from "src/pages/home";
 import settings from "src/pages/settings/settings";
-import todo from "src/pages/todo";
+import create from "src/pages/create";
 
 const routes: IRoute[] = [
   {
@@ -44,10 +44,10 @@ const routes: IRoute[] = [
     protected: true,
   },
   {
-    path: "/todo",
+    path: "/create",
     exact: true,
-    component: todo,
-    name: "Todo Page",
+    component: create,
+    name: "Create Page",
     protected: true,
   },
   {
