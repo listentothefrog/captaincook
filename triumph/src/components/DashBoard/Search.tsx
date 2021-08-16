@@ -88,6 +88,16 @@ const SearchComponent = () => {
             />
           }
         >
+          <Flex
+            width={"100%"}
+            height={"5vh"}
+            alignItems={"center"}
+            justifyContent={"center"}
+          >
+            <Box mr={5}>Search Recipes</Box>
+            <Box mr={5}>Cook List</Box>
+            <Box>Create your recipe</Box>
+          </Flex>
           <Heading
             fontWeight={"extrabold"}
             fontSize={"2xl"}
