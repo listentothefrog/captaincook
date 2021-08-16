@@ -37,11 +37,7 @@ const HeaderComponent = () => {
             )}
           </Box>
           <Box margin={"2"} fontWeight={"medium"} fontFamily={"body"}>
-            {user ? (
-              <Link to="/create">Create Recipes</Link>
-            ) : (
-              <Link to="/register">Register</Link>
-            )}
+            {user ? "" : <Link to="/register">Register</Link>}
           </Box>
           <Box margin={"2"} ml={2} fontWeight={"medium"} fontFamily={"body"}>
             {user ? (
