@@ -22,7 +22,7 @@ const SearchComponent = () => {
 
   const getRecipes = async () => {
     const response = await axios.get(
-      `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=8232891e&app_key=9dad9dd4911a07651dea427243c50b52`
+      `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${process.env.REACT_APP_RECIPE_API_APP_ID}&app_key=${process.env.REACT_APP_RECIPE_API_APP_KEY}`
     );
     const data = await response.data;
     setRecipes(data.hits);
