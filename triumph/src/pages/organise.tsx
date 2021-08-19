@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
-import { Spinner } from "@chakra-ui/spinner";
 import React, { Suspense } from "react";
+import SpinnerComponent from "src/components/Spinner";
 const HeaderComponent = React.lazy(() => import("../components/Header"));
 const OrganiseComponent = React.lazy(
   () => import("../components/DashBoard/Organise")
@@ -9,17 +9,7 @@ const OrganiseComponent = React.lazy(
 const create = () => {
   return (
     <Box>
-      <Suspense
-        fallback={
-          <Spinner
-            thickness="3px"
-            speed="0.65s"
-            emptyColor="gray.200"
-            color="#6c9e4f"
-            size="md"
-          />
-        }
-      >
+      <Suspense fallback={<SpinnerComponent />}>
         <HeaderComponent />
         <OrganiseComponent />
       </Suspense>

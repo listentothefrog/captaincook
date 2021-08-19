@@ -1,6 +1,6 @@
-import { Spinner } from "@chakra-ui/spinner";
 import React, { Suspense } from "react";
 import { Redirect } from "react-router-dom";
+import SpinnerComponent from "src/components/Spinner";
 import { auth } from "src/firebase/firebase";
 import IPageProps from "src/interfaces/page";
 const RegisterComponent = React.lazy(() => import("src/components/Register"));
@@ -8,17 +8,7 @@ const RegisterComponent = React.lazy(() => import("src/components/Register"));
 const register: React.FC<IPageProps> = (props) => {
   if (!auth.currentUser) {
     return (
-      <Suspense
-        fallback={
-          <Spinner
-            thickness="3px"
-            speed="0.65s"
-            emptyColor="gray.200"
-            color="#6c9e4f"
-            size="md"
-          />
-        }
-      >
+      <Suspense fallback={<SpinnerComponent />}>
         <RegisterComponent />
       </Suspense>
     );

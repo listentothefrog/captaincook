@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Route, RouteComponentProps, Switch } from "react-router-dom";
 import { auth } from "./firebase/firebase";
-import { Spinner } from "@chakra-ui/spinner";
 import routes from "./firebase/routes";
 import AuthRoute from "./components/AuthRoute";
+import SpinnerComponent from "./components/Spinner";
 
 export interface IApplicationProps {}
 const App: React.FC<IApplicationProps> = (props) => {
@@ -21,16 +21,7 @@ const App: React.FC<IApplicationProps> = (props) => {
     });
   }, []);
 
-  if (loading)
-    return (
-      <Spinner
-        thickness="3px"
-        speed="0.65s"
-        emptyColor="gray.200"
-        color="#6c9e4f"
-        size="md"
-      />
-    );
+  if (loading) return <SpinnerComponent />;
 
   return (
     <div>

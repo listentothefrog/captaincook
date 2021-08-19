@@ -8,9 +8,9 @@ import {
   InputGroup,
   InputLeftElement,
 } from "@chakra-ui/react";
-import { Spinner } from "@chakra-ui/spinner";
 import axios from "axios";
 import React, { Suspense, useEffect, useState } from "react";
+import SpinnerComponent from "../Spinner";
 import DashboardHeader from "./DashboardHeader";
 const RecipesCardComponent = React.lazy(() => import("./RecipesCard"));
 const SearchComponent = () => {
@@ -82,30 +82,8 @@ const SearchComponent = () => {
         </Flex>
       </Flex>
       {!null ? (
-        <Suspense
-          fallback={
-            <Spinner
-              thickness="3px"
-              speed="0.65s"
-              emptyColor="gray.200"
-              color="#6c9e4f"
-              size="md"
-            />
-          }
-        >
-          <Suspense
-            fallback={
-              <Spinner
-                thickness="3px"
-                speed="0.65s"
-                emptyColor="gray.200"
-                color="#6c9e4f"
-                size="md"
-              />
-            }
-          >
-            <DashboardHeader />
-          </Suspense>
+        <Suspense fallback={<SpinnerComponent />}>
+          <DashboardHeader />
           <Heading
             fontWeight={"extrabold"}
             fontSize={"2xl"}

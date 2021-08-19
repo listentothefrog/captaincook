@@ -1,8 +1,8 @@
 import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
-import { Spinner } from "@chakra-ui/spinner";
 import React, { Suspense } from "react";
 import { Link } from "react-router-dom";
 import HeaderComponent from "src/components/Header";
+import SpinnerComponent from "src/components/Spinner";
 import BreadCurry from "../images/bread_and_curry.jpeg";
 import HomeCookIcon from "../images/HomeCook.svg";
 import MasterChefIcon from "../images/MasterChef.svg";
@@ -87,17 +87,7 @@ const home = () => {
           <br /> and fits your style.
         </Text>
       </Flex>
-      <Suspense
-        fallback={
-          <Spinner
-            thickness="3px"
-            speed="0.65s"
-            emptyColor="gray.200"
-            color="#6c9e4f"
-            size="md"
-          />
-        }
-      >
+      <Suspense fallback={<SpinnerComponent />}>
         <Flex w={"100%"} mt={4} justifyContent={"space-evenly"}>
           <PricingComponent
             plan_title={"Home Chef"}
