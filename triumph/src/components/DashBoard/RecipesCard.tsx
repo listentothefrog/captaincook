@@ -1,3 +1,4 @@
+import { AddIcon, CheckIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -7,6 +8,7 @@ import {
   Link,
   Text,
   useClipboard,
+  useOutsideClick,
 } from "@chakra-ui/react";
 import React from "react";
 import IRecipeProps from "src/interfaces/recipe";
@@ -14,6 +16,13 @@ import IRecipeProps from "src/interfaces/recipe";
 const RecipesCardComponent: React.FC<IRecipeProps> = (props) => {
   const { title, image, source, ingredients, calories, url, shareAs } = props;
   const { hasCopied, onCopy } = useClipboard(shareAs);
+  const ref = React.useRef() as React.MutableRefObject<HTMLInputElement>;
+
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  useOutsideClick({
+    ref: ref,
+    handler: () => setIsModalOpen(false),
+  });
 
   return (
     <Flex
@@ -75,6 +84,17 @@ const RecipesCardComponent: React.FC<IRecipeProps> = (props) => {
           ml={2}
         >
           {hasCopied ? "Copied" : "Copy"}
+        </Button>
+        <Button background={"green.400"} color={"white"} ml={2}>
+          {isModalOpen ? (
+            <div ref={ref}>
+              <CheckIcon />
+            </div>
+          ) : (
+            <button onClick={() => setIsModalOpen(true)}>
+              <AddIcon />
+            </button>
+          )}
         </Button>
       </Flex>
     </Flex>
