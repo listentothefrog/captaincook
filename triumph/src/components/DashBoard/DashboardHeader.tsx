@@ -26,13 +26,13 @@ const DashboardHeader = () => {
             <Box mr={5}>Cook List</Box>
             <Box>
               <NavLink
-                to="/dashboard/create"
+                to="/dashboard/organise"
                 activeStyle={{
                   fontWeight: "bold",
                   color: "#48BB78",
                 }}
               >
-                Create your recipe
+                Organise Recipes
               </NavLink>
             </Box>
           </Flex>
