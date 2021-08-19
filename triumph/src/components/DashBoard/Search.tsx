@@ -11,6 +11,7 @@ import {
 import { Spinner } from "@chakra-ui/spinner";
 import axios from "axios";
 import React, { Suspense, useEffect, useState } from "react";
+import DashboardHeader from "./DashboardHeader";
 const RecipesCardComponent = React.lazy(() => import("./RecipesCard"));
 const SearchComponent = () => {
   const [recipes, setRecipes] = useState([]);
@@ -92,16 +93,19 @@ const SearchComponent = () => {
             />
           }
         >
-          <Flex
-            width={"100%"}
-            height={"5vh"}
-            alignItems={"center"}
-            justifyContent={"center"}
+          <Suspense
+            fallback={
+              <Spinner
+                thickness="3px"
+                speed="0.65s"
+                emptyColor="gray.200"
+                color="#6c9e4f"
+                size="md"
+              />
+            }
           >
-            <Box mr={5}>Search Recipes</Box>
-            <Box mr={5}>Cook List</Box>
-            <Box>Create your recipe</Box>
-          </Flex>
+            <DashboardHeader />
+          </Suspense>
           <Heading
             fontWeight={"extrabold"}
             fontSize={"2xl"}
