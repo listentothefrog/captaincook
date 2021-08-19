@@ -19,7 +19,7 @@ const routes: IRoute[] = [
     path: "/dashboard",
     exact: true,
     component: dashboard,
-    name: "Dashbaard",
+    name: "Dashboard",
     protected: true,
   },
   {
@@ -44,7 +44,7 @@ const routes: IRoute[] = [
     protected: true,
   },
   {
-    path: "/create",
+    path: "/dashboard/create",
     exact: true,
     component: create,
     name: "Create Page",
