@@ -97,7 +97,12 @@ const home = () => {
         </Text>
       </Flex>
       <Suspense fallback={<SpinnerComponent />}>
-        <Flex w={"100%"} mt={4} justifyContent={"space-evenly"}>
+        <Flex
+          w={"100%"}
+          flexDirection={{ sm: "column", md: "column", lg: "row" }}
+          mt={4}
+          justifyContent={"space-evenly"}
+        >
           <PricingComponent
             plan_title={"Home Chef"}
             plan_image={HomeCookIcon}
