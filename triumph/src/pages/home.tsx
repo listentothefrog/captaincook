@@ -1,36 +1,36 @@
 import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import React, { Suspense } from "react";
 import { Link } from "react-router-dom";
-import HeaderComponent from "src/components/Header";
 import SpinnerComponent from "src/components/Spinner";
-import BreadCurry from "../images/bread_and_curry.jpeg";
 import HomeCookIcon from "../images/HomeCook.svg";
 import MasterChefIcon from "../images/MasterChef.svg";
 import ProChefIcon from "../images/ProChef.svg";
 const PricingComponent = React.lazy(() => import("src/components/Pricing"));
+const HeaderComponent = React.lazy(() => import("src/components/Header"));
 
 const home = () => {
   return (
     <Box>
-      <HeaderComponent />
+      <Suspense fallback={<SpinnerComponent />}>
+        <HeaderComponent />
+      </Suspense>
       <Flex
-        justifyContent={"space-evenly"}
+        justifyContent={"center"}
         width={"100%"}
         height={"90vh"}
+        flexDir={{ sm: "column", md: "row", lg: "row" }}
         alignItems={"center"}
         background={"#f5f5f5"}
-        alignContent={"center"}
         boxShadow="lg"
       >
         <Flex maxWidth={"50%"} maxHeight={"90vh"} flexDir={"column"}>
-          <Heading>Cook like a pro chef.</Heading>
-          <Text fontSize={"16px"} mt={"4"}>
-            CaptainCook is where you can organize your recipes. Chef's can
-            create a recipie and add ingredients to that recipe and can organize
-            their recipes on a Kanban board. Chef's can also look up recipes and
-            add it to their "cook list", their is also a recommended page where
-            there will be a feed of recommended food where they can try out and
-            add it to their "cook list".
+          <Text fontFamily={"heading"} fontSize={{ sm: "30px", lg: "44px" }}>
+            Cook like a pro chef.
+          </Text>
+          <Text fontSize={{ sm: "18px", md: "17px", lg: "19px" }} mt={"4"}>
+            Save your favorite recipes in one place with ease. Look through a
+            feed of recommended food items to try for your next meal. Organize
+            all of your meal plans and share them with anyone, anywhere.
           </Text>
           <Flex
             width={"100%"}
@@ -38,31 +38,40 @@ const home = () => {
             flexDirection={"row"}
             alignItems={"center"}
           >
-            <Box>
-              <Button mr={"4"} color={"white"} background={"green.400"}>
-                <Link to="/register">Create an account</Link>
-              </Button>
-              <Button color={"white"} colorScheme={"purple"}>
-                Support CaptainCook
-              </Button>
+            <Box flexDirection={"row"}>
+              <Link to="/register">
+                <Button
+                  mr={4}
+                  width={{ sm: "250px", md: "200px", lg: "250px" }}
+                  color={"white"}
+                  background={"green.400"}
+                >
+                  Create an account
+                </Button>
+              </Link>
             </Box>
           </Flex>
         </Flex>
         <Flex
-          height={"60vh"}
-          width={"50vh"}
+          height={{ sm: "0vh", lg: "50vh" }}
+          width={{ sm: "0vh", lg: "60vh" }}
           alignContent={"center"}
           justifyContent={"center"}
         >
           <Box>
-            <Image
-              src={BreadCurry}
-              width={"100%"}
-              height={"100%"}
-              alt={"Sweet"}
-              boxShadow="lg"
-              borderRadius={"lg"}
-            />
+            <Suspense fallback={<SpinnerComponent />}>
+              <Image
+                src={
+                  "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80"
+                }
+                width={{ sm: "0%", md: "50vh" }}
+                objectFit={"cover"}
+                height={"100%"}
+                alt={"Photo by Davide Cantelli on Unsplash"}
+                boxShadow="lg"
+                borderRadius={"lg"}
+              />
+            </Suspense>
           </Box>
         </Flex>
       </Flex>
