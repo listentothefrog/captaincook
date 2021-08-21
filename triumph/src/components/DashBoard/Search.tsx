@@ -40,50 +40,37 @@ const SearchComponent = () => {
   };
   return (
     <Box>
-      <Flex
-        flexDirection="row"
-        width="100wh"
-        height="10vh"
-        justifyContent="center"
-        alignItems="center"
-        alignContent={"center"}
-      >
-        <Flex flexDir="row" mb="2" justifyContent="center" alignItems="center">
-          <Box width={"490px"}>
-            <Flex spacing={4} p="1rem">
-              <FormControl
-                onChange={updateSearch}
-                id="Search Recipe"
-                isRequired
-              >
-                <InputGroup>
-                  <InputLeftElement pointerEvents="none" />
-                  <Input
-                    type="string"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    placeholder="Type something...."
-                  />
-                </InputGroup>
-              </FormControl>
-            </Flex>
-          </Box>
-          <Button
-            borderRadius={4}
-            type="submit"
-            variant="solid"
-            onClick={getSearch}
-            backgroundColor={"green.400"}
-            width="100px"
-            color={"white"}
-          >
-            Search
-          </Button>
-        </Flex>
-      </Flex>
       <Suspense fallback={<SpinnerComponent />}>
         <DashboardHeader />
       </Suspense>
+      <Flex flexDir="row" mb="2" justifyContent="center" alignItems="center">
+        <Box width={"490px"}>
+          <Flex spacing={4} p="1rem">
+            <FormControl onChange={updateSearch} id="Search Recipe" isRequired>
+              <InputGroup>
+                <InputLeftElement pointerEvents="none" />
+                <Input
+                  type="string"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Type something...."
+                />
+              </InputGroup>
+            </FormControl>
+          </Flex>
+        </Box>
+        <Button
+          borderRadius={4}
+          type="submit"
+          variant="solid"
+          onClick={getSearch}
+          backgroundColor={"green.400"}
+          width="100px"
+          color={"white"}
+        >
+          Search
+        </Button>
+      </Flex>
       {!null ? (
         <Suspense fallback={<SpinnerComponent />}>
           <Heading
