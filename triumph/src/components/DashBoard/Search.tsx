@@ -32,7 +32,6 @@ const SearchComponent = () => {
 
   const updateSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
-    console.log(search);
   };
 
   const getSearch = () => {
