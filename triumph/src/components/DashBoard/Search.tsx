@@ -11,8 +11,9 @@ import {
 import axios from "axios";
 import React, { Suspense, useEffect, useState } from "react";
 import SpinnerComponent from "../Spinner";
-import DashboardHeader from "./DashboardHeader";
+const DashboardHeader = React.lazy(() => import("./DashboardHeader"));
 const RecipesCardComponent = React.lazy(() => import("./RecipesCard"));
+
 const SearchComponent = () => {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState<string>("");
@@ -80,9 +81,11 @@ const SearchComponent = () => {
           </Button>
         </Flex>
       </Flex>
+      <Suspense fallback={<SpinnerComponent />}>
+        <DashboardHeader />
+      </Suspense>
       {!null ? (
         <Suspense fallback={<SpinnerComponent />}>
-          <DashboardHeader />
           <Heading
             fontWeight={"extrabold"}
             fontSize={"2xl"}
