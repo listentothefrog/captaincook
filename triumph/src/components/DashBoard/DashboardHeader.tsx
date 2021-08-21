@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const DashboardHeader = () => {
   return (
-    <Box>
+    <Box mt={2}>
       <Flex
         width={"100%"}
         height={"5vh"}
@@ -38,14 +38,6 @@ const DashboardHeader = () => {
           </Flex>
         </Flex>
       </Flex>
-      <Box
-        width={"full"}
-        p={1}
-        border={2}
-        borderBottom={"1px"}
-        opacity={".5"}
-        mt={1}
-      ></Box>
     </Box>
   );
 };
