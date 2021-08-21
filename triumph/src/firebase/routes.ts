@@ -2,10 +2,11 @@ import IRoute from "src/interfaces/route";
 import pageNotFound from "src/pages/404";
 import login from "src/pages/auth/login";
 import register from "src/pages/auth/register";
-import dashboard from "src/pages/dashboard";
+import dashboard from "src/pages/dashboard/dashboard";
 import home from "src/pages/home";
 import settings from "src/pages/settings/settings";
 import organise from "src/pages/organise";
+import search from "src/pages/dashboard/search";
 
 const routes: IRoute[] = [
   {
@@ -48,6 +49,13 @@ const routes: IRoute[] = [
     exact: true,
     component: organise,
     name: "Organise Page",
+    protected: true,
+  },
+  {
+    path: "/dashboard/search",
+    exact: true,
+    component: search,
+    name: "Search Page",
     protected: true,
   },
   {
