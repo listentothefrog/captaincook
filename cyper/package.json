@@ -1,0 +1,10 @@
+{
+  "name": "cyper",
+  "version": "1.0.0",
+  "description": "API that connects the back-end to the front-end",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "Shashank Elareddy",
+  "license": "ISC"
+}
