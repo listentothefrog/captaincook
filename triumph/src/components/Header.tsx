@@ -60,7 +60,7 @@ const HeaderComponent = () => {
         </Text>
         <Text>{user ? "" : <Link to="/login">Login</Link>}</Text>
         <Text>Contact</Text>
-        <Text>Updates</Text>
+        <Text>Change Log</Text>
       </Stack>
 
       <Box
