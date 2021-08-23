@@ -1,22 +1,31 @@
-import { Box, Flex } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  useDisclosure,
+  Text,
+  Button,
+  Stack,
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import logo from "../images/logo-web.svg";
 import { auth } from "src/firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { SettingsIcon } from "@chakra-ui/icons";
+import { CloseIcon, HamburgerIcon, SettingsIcon } from "@chakra-ui/icons";
 
 const HeaderComponent = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const handleToggle = () => (isOpen ? onClose() : onOpen());
   const [user] = useAuthState(auth);
   return (
     <Flex
-      justifyContent={"space-evenly"}
-      boxShadow="lg"
-      border={2}
-      width={"100%"}
-      borderBottom={"1px"}
-      alignContent={"center"}
+      as="nav"
+      align="center"
+      justify="space-between"
+      wrap="wrap"
+      padding={6}
+      background={"gray.100"}
     >
-      <Box marginTop={"2"} marginLeft={"4"}>
+      <Flex align="center" mr={5}>
         <Link to="/">
           <img
             src={logo}
@@ -26,30 +35,43 @@ const HeaderComponent = () => {
             height={"100%"}
           />
         </Link>
+      </Flex>
+
+      <Box
+        cursor={"pointer"}
+        display={{ base: "block", md: "none" }}
+        onClick={handleToggle}
+      >
+        {!isOpen ? <HamburgerIcon /> : <CloseIcon />}
       </Box>
-      <Box>
-        <Flex margin={"2"} width={"full"} alignItems="center">
-          <Box marginRight={"2"} fontWeight={"medium"} fontFamily={"body"}>
-            {user ? (
-              <Link to="/dashboard">Dashboard</Link>
-            ) : (
-              <Link to="/login">Login</Link>
-            )}
-          </Box>
-          <Box margin={"2"} fontWeight={"medium"} fontFamily={"body"}>
-            {user ? "" : <Link to="/register">Register</Link>}
-          </Box>
-          <Box margin={"2"} ml={2} fontWeight={"medium"} fontFamily={"body"}>
-            {user ? (
-              <Link to="/settings">
-                {user.email}
-                <SettingsIcon ml={2} />
-              </Link>
-            ) : (
-              ""
-            )}
-          </Box>
-        </Flex>
+
+      <Stack
+        direction={{ base: "column", md: "row" }}
+        display={{ base: isOpen ? "block" : "none", md: "flex" }}
+        width={{ base: "full", md: "auto" }}
+        mt={{ base: 4, md: 0 }}
+      >
+        <Text>
+          {user ? (
+            <Link to="/dashboard">Dashboard</Link>
+          ) : (
+            <Link to="/register">Register</Link>
+          )}
+        </Text>
+        <Text>{user ? "" : <Link to="/login">Login</Link>}</Text>
+        <Text>Contact</Text>
+        <Text>Updates</Text>
+      </Stack>
+
+      <Box
+        display={{ base: isOpen ? "block" : "none", md: "block" }}
+        mt={{ base: 4, md: 0 }}
+      >
+        <Link to="/settings">
+          <Button variant="outline">
+            Settings <SettingsIcon boxSize={"3"} ml={2} />
+          </Button>
+        </Link>
       </Box>
     </Flex>
   );
