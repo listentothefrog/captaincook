@@ -1,17 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "@fontsource/poppins/400.css";
-import "@fontsource/montserrat/700.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import "./index.css";
 require("dotenv").config();
 
 // custom fonts
 const theme = extendTheme({
   fonts: {
-    heading: "Montserrat",
-    body: "Poppins",
+    heading: "Ubuntu, sans-serif",
+    body: "Poppins, sans-serif",
   },
 });
 
