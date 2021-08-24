@@ -1,7 +1,10 @@
 import { Box, Button, Flex, Heading, Input, Text } from "@chakra-ui/react";
+import React, { Suspense } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router-dom";
 import { auth } from "src/firebase/firebase";
+import SpinnerComponent from "../Spinner";
+const ProfilePictureComponent = React.lazy(() => import("./ProfilePicture"));
 
 const Account = () => {
   const [user] = useAuthState(auth);
@@ -20,6 +23,9 @@ const Account = () => {
       flexDirection={"column"}
       height={"100%"}
     >
+      <Suspense fallback={<SpinnerComponent />}>
+        <ProfilePictureComponent />
+      </Suspense>
       <Box width={"100%"}>
         <Heading fontSize={"16px"} fontWeight={"bold"}>
           Email
