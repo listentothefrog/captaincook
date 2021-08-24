@@ -16,7 +16,7 @@ const HeaderComponent = () => {
       justify="space-between"
       wrap="wrap"
       padding={6}
-      background={"gray.100"}
+      borderBottom={"2px"}
     >
       <Flex align="center" mr={5}>
         <Link to="/">

@@ -21,7 +21,6 @@ const home = () => {
         justify={{ base: "center", md: "space-around", xl: "space-between" }}
         direction={{ base: "column-reverse", md: "row" }}
         alignItems={"center"}
-        background={"#f5f5f5"}
         boxShadow="lg"
       >
         <Flex
@@ -50,6 +49,9 @@ const home = () => {
                   width={{ sm: "250px", md: "200px", lg: "250px" }}
                   color={"white"}
                   background={"green.400"}
+                  _hover={{
+                    bg: "green.300",
+                  }}
                 >
                   Create an account
                 </Button>

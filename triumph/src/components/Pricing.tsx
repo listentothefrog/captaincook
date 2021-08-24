@@ -28,18 +28,11 @@ const PricingComponent: React.FC<IPricingProps> = (props) => {
       <Box
         maxW={"330px"}
         w={"full"}
-        bg={"white"}
         boxShadow={"2xl"}
         rounded={"md"}
         overflow={"hidden"}
       >
-        <Stack
-          direction={"column"}
-          p={6}
-          color={"gray.800"}
-          align={"center"}
-          justify={"center"}
-        >
+        <Stack direction={"column"} p={6} align={"center"} justify={"center"}>
           <Flex>
             <Image
               src={plan_image}
@@ -70,7 +63,7 @@ const PricingComponent: React.FC<IPricingProps> = (props) => {
           </Flex>
         </Stack>
 
-        <Box bg={"gray.50"} px={6} py={10}>
+        <Box px={6} py={10}>
           <List spacing={3}>
             <ListItem>
               <ListIcon as={CheckIcon} color="green.400" />
@@ -98,7 +91,7 @@ const PricingComponent: React.FC<IPricingProps> = (props) => {
             rounded={"sm"}
             boxShadow={"0 5px 20px 0px rgb(72 187 120 / 43%)"}
             _hover={{
-              bg: "#6c9e4f",
+              bg: "green.300",
             }}
           >
             Start using 👉
