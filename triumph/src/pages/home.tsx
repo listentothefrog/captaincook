@@ -18,16 +18,21 @@ const home = () => {
         justifyContent={"center"}
         width={"100%"}
         height={"90vh"}
-        flexDir={{ sm: "column", md: "row", lg: "row" }}
+        justify={{ base: "center", md: "space-around", xl: "space-between" }}
+        direction={{ base: "column-reverse", md: "row" }}
         alignItems={"center"}
         background={"#f5f5f5"}
         boxShadow="lg"
       >
-        <Flex maxWidth={"50%"} maxHeight={"90vh"} flexDir={"column"}>
-          <Text fontFamily={"heading"} fontSize={{ sm: "30px", lg: "44px" }}>
+        <Flex
+          mt={{ base: 2, md: 0, lg: 0 }}
+          w={{ base: "80%", md: "40%" }}
+          flexDir={"column"}
+        >
+          <Heading fontFamily={"heading"} size="xl">
             Cook like a pro chef.
-          </Text>
-          <Text fontSize={{ sm: "18px", md: "17px", lg: "19px" }} mt={"4"}>
+          </Heading>
+          <Text mt={"4"}>
             Save your favorite recipes in one place with ease. Look through a
             feed of recommended food items to try for your next meal. Organize
             all of your meal plans and share them with anyone, anywhere.
@@ -53,8 +58,8 @@ const home = () => {
           </Flex>
         </Flex>
         <Flex
-          height={{ sm: "0vh", lg: "50vh" }}
-          width={{ sm: "0vh", lg: "60vh" }}
+          height={{ base: "25vh", lg: "40vh" }}
+          width={{ base: "35vh", lg: "60vh" }}
           alignContent={"center"}
           justifyContent={"center"}
         >
@@ -64,7 +69,8 @@ const home = () => {
                 src={
                   "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80"
                 }
-                width={{ sm: "0%", md: "50vh" }}
+                w={{ base: "100%", sm: "90%", md: "90%" }}
+                ml={2}
                 objectFit={"cover"}
                 height={"100%"}
                 alt={"Photo by Davide Cantelli on Unsplash"}
@@ -99,7 +105,12 @@ const home = () => {
       <Suspense fallback={<SpinnerComponent />}>
         <Flex
           w={"100%"}
-          flexDirection={{ sm: "column", md: "column", lg: "row" }}
+          flexDirection={{
+            base: "column",
+            sm: "column",
+            md: "column",
+            lg: "row",
+          }}
           mt={4}
           justifyContent={"space-evenly"}
         >
