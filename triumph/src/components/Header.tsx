@@ -1,16 +1,9 @@
-import {
-  Box,
-  Flex,
-  useDisclosure,
-  Text,
-  Button,
-  Stack,
-} from "@chakra-ui/react";
+import { Box, Flex, useDisclosure, Text, Stack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import logo from "../images/logo-web.svg";
 import { auth } from "src/firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { CloseIcon, HamburgerIcon, SettingsIcon } from "@chakra-ui/icons";
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 
 const HeaderComponent = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
