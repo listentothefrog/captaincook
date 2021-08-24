@@ -1,5 +1,6 @@
 import { Flex } from "@chakra-ui/react";
 import React, { Suspense } from "react";
+import Appearance from "src/components/Settings/Appearance";
 import SpinnerComponent from "src/components/Spinner";
 const Account = React.lazy(() => import("src/components/Settings/Account"));
 
@@ -14,6 +15,7 @@ const settings = () => {
     >
       <Suspense fallback={<SpinnerComponent />}>
         <Account />
+        <Appearance />
       </Suspense>
     </Flex>
   );
