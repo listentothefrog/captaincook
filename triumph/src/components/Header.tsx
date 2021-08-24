@@ -50,6 +50,7 @@ const HeaderComponent = () => {
         display={{ base: isOpen ? "block" : "none", md: "flex" }}
         width={{ base: "full", md: "auto" }}
         mt={{ base: 4, md: 0 }}
+        mr={2}
       >
         <Text>
           {user ? (
@@ -58,21 +59,11 @@ const HeaderComponent = () => {
             <Link to="/register">Register</Link>
           )}
         </Text>
-        <Text>{user ? "" : <Link to="/login">Login</Link>}</Text>
-        <Text>Contact</Text>
-        <Text>Change Log</Text>
+        <Text mr={4}>{user ? "" : <Link to="/login">Login</Link>}</Text>
+        <Text mr={4}>Contact</Text>
+        <Text mr={4}>Change Log</Text>
+        <Text>{user ? <Link to="/settings">Account Settings</Link> : ""}</Text>
       </Stack>
-
-      <Box
-        display={{ base: isOpen ? "block" : "none", md: "block" }}
-        mt={{ base: 4, md: 0 }}
-      >
-        <Link to="/settings">
-          <Button variant="outline">
-            Settings <SettingsIcon boxSize={"3"} ml={2} />
-          </Button>
-        </Link>
-      </Box>
     </Flex>
   );
 };
