@@ -14,6 +14,7 @@ const ProfilePictureComponent = () => {
         width={"100%"}
         height={"90%"}
         src={`https://avatars.dicebear.com/api/micah/:${name}.svg`}
+        alt={"User profile picture"}
       />
     </Box>
   );
