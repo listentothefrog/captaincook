@@ -21,7 +21,7 @@ const Account = () => {
       justifyContent={"center"}
       width={"70vh"}
       flexDirection={"column"}
-      height={"100%"}
+      height={"50vh"}
     >
       <Suspense fallback={<SpinnerComponent />}>
         <ProfilePictureComponent />
