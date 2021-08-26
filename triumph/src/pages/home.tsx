@@ -84,6 +84,27 @@ const home = () => {
         </Flex>
       </Flex>
       <Flex
+        justifyContent={"center"}
+        width={"100%"}
+        height={"55vh"}
+        justify={{ base: "center", md: "space-around", xl: "space-between" }}
+        direction={{ base: "column-reverse", md: "row" }}
+        alignItems={"center"}
+        boxShadow="lg"
+      >
+        <Box width={"400px"} height={"55vh"}>
+          <Image
+            src={
+              "https://images.unsplash.com/photo-1528712306091-ed0763094c98?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=760&q=80"
+            }
+            width={"100%"}
+            height={"100%"}
+            objectFit={"contain"}
+            alt="Photo by Kevin McCutcheon on Unsplash"
+          />
+        </Box>
+      </Flex>
+      <Flex
         width={"100%"}
         alignItems={"center"}
         justifyContent={"center"}
