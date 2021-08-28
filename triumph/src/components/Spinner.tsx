@@ -1,6 +1,5 @@
 import { Center, Flex, Heading } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/spinner";
-import { indexOf } from "lodash";
 import { useLocation } from "react-router";
 
 const SpinnerComponent = () => {
