@@ -1,8 +1,9 @@
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Link, useLocation } from "react-router-dom";
 import Lost from "../images/lost.svg";
 
-const pageNotFound = () => {
+const PageNotFound = () => {
+  const location = useLocation();
   return (
     <Flex
       alignItems={"center"}
@@ -11,11 +12,12 @@ const pageNotFound = () => {
       width={"100%"}
       height={"100vh"}
     >
-      <Box width={"400px"} height={"300px"}>
+      <Box width={"600px"} height={"500px"}>
         <Image width={"100%"} height={"100%"} src={Lost} alt={"404"} />
       </Box>
-      <Box width={"600px"} textAlign={"center"}>
-        <Text mt={2} fontWeight={"bold"}>
+      <Box textAlign={"center"}>
+        <Heading size={"lg"}>Can't find page {location.pathname}</Heading>
+        <Text mt={2} fontWeight={"bold"} fontSize={"16px"}>
           You didn't break the internet, but we can't find what you are looking
           for.
         </Text>
@@ -28,7 +30,7 @@ const pageNotFound = () => {
       >
         <Link to="/">
           <Button background={"green.400"} color={"white"}>
-            Return to Home
+            Return to Home?
           </Button>
         </Link>
       </Flex>
@@ -36,4 +38,4 @@ const pageNotFound = () => {
   );
 };
 
-export default pageNotFound;
+export default PageNotFound;
