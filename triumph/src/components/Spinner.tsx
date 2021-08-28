@@ -1,7 +1,11 @@
 import { Center, Flex, Heading } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/spinner";
 
-const SpinnerComponent = () => {
+interface SpinnerComponentMessageProps {
+  message: string;
+}
+const SpinnerComponent = (props: SpinnerComponentMessageProps) => {
+  const { message } = props;
   return (
     <Center>
       <Flex
@@ -18,7 +22,7 @@ const SpinnerComponent = () => {
           color="#48BB78"
           size="xl"
         />
-        <Heading size={"16px"}>Loading...</Heading>
+        <Heading size={"16px"}>{message}</Heading>
       </Flex>
     </Center>
   );
