@@ -71,7 +71,16 @@ const SearchComponent = () => {
           Search
         </Button>
       </Flex>
-      {!null ? (
+      {recipes.length === 0 ? (
+        <Flex
+          alignItems={"center"}
+          width={"100%"}
+          height={"50vh"}
+          justifyContent={"center"}
+        >
+          No results found... Type somethin 😒
+        </Flex>
+      ) : (
         <Suspense fallback={<SpinnerComponent />}>
           <Heading
             fontWeight={"extrabold"}
@@ -95,15 +104,6 @@ const SearchComponent = () => {
             />
           ))}
         </Suspense>
-      ) : (
-        <Flex
-          alignItems={"center"}
-          width={"100%"}
-          height={"90vh"}
-          justifyContent={"center"}
-        >
-          Type something and all of the results will introduce themselves.
-        </Flex>
       )}
     </Box>
   );
