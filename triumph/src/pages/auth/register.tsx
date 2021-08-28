@@ -8,7 +8,13 @@ const RegisterComponent = React.lazy(() => import("src/components/Register"));
 const register: React.FC<IPageProps> = (props) => {
   if (!auth.currentUser) {
     return (
-      <Suspense fallback={<SpinnerComponent />}>
+      <Suspense
+        fallback={
+          <SpinnerComponent
+            message={"Crunching on this file, just for you. Hang tight..."}
+          />
+        }
+      >
         <RegisterComponent />
       </Suspense>
     );

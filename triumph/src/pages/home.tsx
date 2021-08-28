@@ -12,7 +12,13 @@ const Features = React.lazy(() => import("src/components/Features"));
 const home = () => {
   return (
     <Box>
-      <Suspense fallback={<SpinnerComponent />}>
+      <Suspense
+        fallback={
+          <SpinnerComponent
+            message={"Crunching on this file, just for you. Hang tight..."}
+          />
+        }
+      >
         <HeaderComponent />
       </Suspense>
       <Flex
@@ -67,7 +73,15 @@ const home = () => {
           justifyContent={"center"}
         >
           <Box>
-            <Suspense fallback={<SpinnerComponent />}>
+            <Suspense
+              fallback={
+                <SpinnerComponent
+                  message={
+                    "Crunching on this file, just for you. Hang tight..."
+                  }
+                />
+              }
+            >
               <Image
                 src={
                   "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80"
@@ -91,7 +105,13 @@ const home = () => {
         boxShadow={"xl"}
       >
         <Box p={10}>
-          <Suspense fallback={<SpinnerComponent />}>
+          <Suspense
+            fallback={
+              <SpinnerComponent
+                message={"Crunching on this file, just for you. Hang tight..."}
+              />
+            }
+          >
             <Features />
           </Suspense>
         </Box>
@@ -117,7 +137,13 @@ const home = () => {
           <br /> and fits your style.
         </Text>
       </Flex>
-      <Suspense fallback={<SpinnerComponent />}>
+      <Suspense
+        fallback={
+          <SpinnerComponent
+            message={"Crunching on this file, just for you. Hang tight..."}
+          />
+        }
+      >
         <Flex
           w={"100%"}
           flexDirection={{

@@ -10,7 +10,13 @@ const FeedComponent = React.lazy(() => import("src/components/DashBoard/Feed"));
 const Dashboard = () => {
   return (
     <Box>
-      <Suspense fallback={<SpinnerComponent />}>
+      <Suspense
+        fallback={
+          <SpinnerComponent
+            message={"Crunching on this file, just for you. Hang tight..."}
+          />
+        }
+      >
         <HeaderComponent />
         <DashboardHeader />
         <FeedComponent />

@@ -23,7 +23,13 @@ const Account = () => {
       flexDirection={"column"}
       height={"50vh"}
     >
-      <Suspense fallback={<SpinnerComponent />}>
+      <Suspense
+        fallback={
+          <SpinnerComponent
+            message={"Loading your beautiful profile picture 🔥"}
+          />
+        }
+      >
         <ProfilePictureComponent />
       </Suspense>
       <Box width={"100%"}>

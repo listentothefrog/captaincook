@@ -7,7 +7,13 @@ const LoginComponent = React.lazy(() => import("src/components/Login"));
 const login: React.FC<IPageProps> = (props) => {
   if (!auth.currentUser) {
     return (
-      <Suspense fallback={<SpinnerComponent />}>
+      <Suspense
+        fallback={
+          <SpinnerComponent
+            message={"Crunching on this file, just for you. Hang tight..."}
+          />
+        }
+      >
         <LoginComponent />
       </Suspense>
     );

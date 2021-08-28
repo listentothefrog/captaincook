@@ -9,7 +9,7 @@ const OrganiseComponent = React.lazy(
 const create = () => {
   return (
     <Box>
-      <Suspense fallback={<SpinnerComponent />}>
+      <Suspense fallback={<SpinnerComponent message={"Loading..."} />}>
         <HeaderComponent />
         <OrganiseComponent />
       </Suspense>

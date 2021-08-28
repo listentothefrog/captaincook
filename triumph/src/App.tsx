@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Route, RouteComponentProps, Switch } from "react-router-dom";
+import {
+  Route,
+  RouteComponentProps,
+  Switch,
+  useLocation,
+} from "react-router-dom";
 import { auth } from "./firebase/firebase";
 import routes from "./firebase/routes";
 import AuthRoute from "./components/AuthRoute";
@@ -7,6 +12,7 @@ import SpinnerComponent from "./components/Spinner";
 
 export interface IApplicationProps {}
 const App: React.FC<IApplicationProps> = (props) => {
+  const location = useLocation();
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -21,7 +27,8 @@ const App: React.FC<IApplicationProps> = (props) => {
     });
   }, []);
 
-  if (loading) return <SpinnerComponent />;
+  if (loading)
+    return <SpinnerComponent message={`Loading ${location.pathname}`} />;
 
   return (
     <div>

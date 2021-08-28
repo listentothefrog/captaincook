@@ -12,7 +12,11 @@ const settings = () => {
       width={"100%"}
       height={"100vh"}
     >
-      <Suspense fallback={<SpinnerComponent />}>
+      <Suspense
+        fallback={
+          <SpinnerComponent message={"Loading your account. Hang tight..."} />
+        }
+      >
         <Account />
       </Suspense>
     </Flex>

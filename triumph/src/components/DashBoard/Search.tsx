@@ -40,7 +40,13 @@ const SearchComponent = () => {
   };
   return (
     <Box>
-      <Suspense fallback={<SpinnerComponent />}>
+      <Suspense
+        fallback={
+          <SpinnerComponent
+            message={"Crunching on this file, just for you. Hang tight..."}
+          />
+        }
+      >
         <DashboardHeader />
       </Suspense>
       <Flex flexDir="row" mb="2" justifyContent="center" alignItems="center">
@@ -81,7 +87,15 @@ const SearchComponent = () => {
           No results found... Type somethin 😒
         </Flex>
       ) : (
-        <Suspense fallback={<SpinnerComponent />}>
+        <Suspense
+          fallback={
+            <SpinnerComponent
+              message={
+                "Find all of the tasty recipes, just for you. Hang tight..."
+              }
+            />
+          }
+        >
           <Heading
             fontWeight={"extrabold"}
             fontSize={"2xl"}
