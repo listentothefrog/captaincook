@@ -21,6 +21,7 @@ import {
 import React, { Suspense, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router-dom";
+import { useToasts } from "react-toast-notifications";
 import { auth } from "src/firebase/firebase";
 import SpinnerComponent from "../Spinner";
 const ProfilePictureComponent = React.lazy(() => import("./ProfilePicture"));
@@ -30,6 +31,26 @@ const Account = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const history = useHistory();
   const [email, setEmail] = useState<string>("");
+  const { addToast } = useToasts();
+
+  const userUpdatePassword = async () => {
+    await auth
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        addToast("An email was sent to your inbox to reset your password.", {
+          appearance: "success",
+          autoDismiss: true,
+        });
+      })
+      .catch((err) => {
+        const message = err.message;
+        addToast(message, {
+          appearance: "warning",
+          autoDismiss: true,
+        });
+      });
+  };
+
   const userSignOut = async () => {
     await auth.signOut();
     history.push("/");
@@ -76,14 +97,20 @@ const Account = () => {
         <Heading mt={5} fontSize={"16px"}>
           Password and Authentication
         </Heading>
+        <Text mt={2} color={"gray.600"}>
+          {user?.emailVerified === true
+            ? ""
+            : "Your email is not verified, so if you click the verify button you will have this superpowers ;)"}
+        </Text>
         <Button
           width={"70vh"}
           mt={4}
           background={"green.400"}
           color={"white"}
           onClick={onOpen}
+          disabled={user?.emailVerified === false}
         >
-          Open Modal
+          Change Password
         </Button>
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
@@ -108,7 +135,12 @@ const Account = () => {
               <Link mr={3} onClick={onClose}>
                 Close
               </Link>
-              <Button background={"green.400"} color={"white"} variant="ghost">
+              <Button
+                onClick={userUpdatePassword}
+                background={"green.400"}
+                color={"white"}
+                variant="ghost"
+              >
                 Change
               </Button>
             </ModalFooter>
