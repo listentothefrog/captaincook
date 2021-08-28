@@ -1,9 +1,7 @@
 import { Center, Flex, Heading } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/spinner";
-import { useLocation } from "react-router";
 
 const SpinnerComponent = () => {
-  const location = useLocation();
   return (
     <Center>
       <Flex
@@ -20,7 +18,7 @@ const SpinnerComponent = () => {
           color="#48BB78"
           size="xl"
         />
-        <Heading size={"16px"}>Loading {location.pathname} </Heading>
+        <Heading size={"16px"}>Loading...</Heading>
       </Flex>
     </Center>
   );
