@@ -12,9 +12,8 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { useToasts } from "react-toast-notifications";
 import { auth } from "src/firebase/firebase";
-import "react-toastify/dist/ReactToastify.css";
 
 const RegisterComponent = () => {
   const [registering, setRegistering] = useState<boolean>(false);
@@ -23,17 +22,13 @@ const RegisterComponent = () => {
   const [confirmPassoword, setConfirmPassoword] = useState<string>("");
   const [error, setError] = useState<string>("");
   const history = useHistory();
+  const { addToast } = useToasts();
 
   const createAccount = async () => {
     if (password !== confirmPassoword) {
-      toast.error("Password's don't match", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
+      addToast("Password's don't match", {
+        appearance: "warning",
+        autoDismiss: true,
       });
       setRegistering(false);
     }
@@ -51,14 +46,9 @@ const RegisterComponent = () => {
       .catch((err) => {
         console.log(err);
         const message = err.message;
-        toast.error(message, {
-          position: "top-right",
-          autoClose: 4000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
+        addToast(message, {
+          appearance: "warning",
+          autoDismiss: true,
         });
         setRegistering(false);
       });
@@ -71,9 +61,6 @@ const RegisterComponent = () => {
       justifyContent="center"
       alignItems="center"
     >
-      <Box right={0} top={20}>
-        <ToastContainer />
-      </Box>
       <Stack
         flexDir="column"
         mb="2"

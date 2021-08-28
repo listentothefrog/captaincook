@@ -12,10 +12,9 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
 import { auth } from "src/firebase/firebase";
 import { Link } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
+import { useToasts } from "react-toast-notifications";
 
 const LoginComponent = () => {
   const [authenticating, setAuthenticating] = useState<boolean>(false);
@@ -23,6 +22,7 @@ const LoginComponent = () => {
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
   const history = useHistory();
+  const { addToast } = useToasts();
 
   const signIntoAccount = async () => {
     if (error !== "") setError("");
@@ -32,29 +32,15 @@ const LoginComponent = () => {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         console.log(result);
-        toast.info("Successful login!", {
-          position: "top-right",
-          autoClose: 4000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
         history.push("/dashboard");
       })
 
       .catch((err) => {
         console.log(err);
         const message = err.message;
-        toast.error(message, {
-          position: "top-right",
-          autoClose: 4000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
+        addToast(message, {
+          appearance: "warning",
+          autoDismiss: true,
         });
         setAuthenticating(false);
       });
@@ -67,9 +53,6 @@ const LoginComponent = () => {
       justifyContent="center"
       alignItems="center"
     >
-      <Box position={"absolute"} right={0} top={20}>
-        <ToastContainer />
-      </Box>
       <Stack
         flexDir="column"
         mb="2"
