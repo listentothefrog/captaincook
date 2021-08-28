@@ -19,20 +19,11 @@ const RegisterComponent = () => {
   const [registering, setRegistering] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [confirmPassoword, setConfirmPassoword] = useState<string>("");
   const [error, setError] = useState<string>("");
   const history = useHistory();
   const { addToast } = useToasts();
 
   const createAccount = async () => {
-    if (password !== confirmPassoword) {
-      addToast("Password's don't match", {
-        appearance: "warning",
-        autoDismiss: true,
-      });
-      setRegistering(false);
-    }
-
     if (error !== "") setError("");
     setRegistering(true);
 
@@ -99,18 +90,7 @@ const RegisterComponent = () => {
                 />
               </InputGroup>
             </FormControl>
-            <FormControl id="Confirm-Password" isRequired>
-              <FormLabel>Confirm Password</FormLabel>
-              <InputGroup>
-                <InputLeftElement pointerEvents="none" color="gray.300" />
-                <Input
-                  onChange={(e) => setConfirmPassoword(e.target.value)}
-                  value={confirmPassoword}
-                  type="password"
-                  placeholder="confirm password"
-                />
-              </InputGroup>
-            </FormControl>
+
             <Button
               borderRadius={4}
               disabled={registering}
