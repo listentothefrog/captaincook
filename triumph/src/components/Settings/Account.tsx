@@ -1,5 +1,24 @@
-import { Box, Button, Flex, Heading, Input, Text } from "@chakra-ui/react";
-import React, { Suspense } from "react";
+import {
+  Box,
+  Button,
+  Flex,
+  FormControl,
+  Heading,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Link,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
+import React, { Suspense, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router-dom";
 import { auth } from "src/firebase/firebase";
@@ -8,9 +27,9 @@ const ProfilePictureComponent = React.lazy(() => import("./ProfilePicture"));
 
 const Account = () => {
   const [user] = useAuthState(auth);
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const history = useHistory();
-
+  const [email, setEmail] = useState<string>("");
   const userSignOut = async () => {
     await auth.signOut();
     history.push("/");
@@ -45,6 +64,57 @@ const Account = () => {
           value={user?.email! as string}
         />
       </Box>
+      <Box
+        width={"full"}
+        p={1}
+        border={1}
+        borderBottom={"1px"}
+        opacity={".5"}
+        mt={2}
+      ></Box>
+      <Flex flexDirection={"column"} mr={"auto"} mt={2}>
+        <Heading mt={5} fontSize={"16px"}>
+          Password and Authentication
+        </Heading>
+        <Button
+          width={"70vh"}
+          mt={4}
+          background={"green.400"}
+          color={"white"}
+          onClick={onOpen}
+        >
+          Open Modal
+        </Button>
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Change Password</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <FormControl width={"100%"} id="Email" isRequired>
+                <InputGroup>
+                  <InputLeftElement pointerEvents="none" color="gray.300" />
+                  <Input
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                    type="email"
+                    placeholder="email"
+                  />
+                </InputGroup>
+              </FormControl>
+            </ModalBody>
+
+            <ModalFooter>
+              <Link mr={3} onClick={onClose}>
+                Close
+              </Link>
+              <Button background={"green.400"} color={"white"} variant="ghost">
+                Change
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </Flex>
       <Box
         width={"full"}
         p={1}
