@@ -4,6 +4,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import "./index.css";
+import { ToastProvider } from "react-toast-notifications";
 require("dotenv").config();
 
 // custom fonts
@@ -20,7 +21,9 @@ ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
       <BrowserRouter>
-        <App />
+        <ToastProvider>
+          <App />
+        </ToastProvider>
       </BrowserRouter>
     </ChakraProvider>
   </React.StrictMode>,
