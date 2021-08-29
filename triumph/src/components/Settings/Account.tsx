@@ -112,7 +112,8 @@ const Account = () => {
         >
           Change Password
         </Button>
-        <Modal isOpen={isOpen} onClose={onClose}>
+
+        <Modal size={"xl"} isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader>Change Password</ModalHeader>
