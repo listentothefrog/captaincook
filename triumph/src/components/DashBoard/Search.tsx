@@ -11,7 +11,9 @@ import {
 import axios from "axios";
 import React, { Suspense, useEffect, useState } from "react";
 import SpinnerComponent from "../Spinner";
-const DashboardHeader = React.lazy(() => import("./DashboardHeader"));
+const DashboardHeader = React.lazy(
+  () => import("./DashboardHeader/DashboardHeader")
+);
 const RecipesCardComponent = React.lazy(() => import("./RecipesCard"));
 
 const SearchComponent = () => {
