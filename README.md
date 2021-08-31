@@ -7,9 +7,6 @@
 </p>
 
 <p align="center">
-  <a href="https://discord.gg/jdhs4m822x">
-   <img alt="Discord" src="https://img.shields.io/discord/829860162696642590" />
-  </a>
   <a href="https://discord.gg/urkcfmFFv8">
     <img src="https://img.shields.io/github/forks/listentothefrog/captaincook" alt="forks" />
   </a>
