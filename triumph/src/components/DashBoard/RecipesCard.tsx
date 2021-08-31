@@ -91,9 +91,9 @@ const RecipesCardComponent: React.FC<IRecipeProps> = (props) => {
               <CheckIcon />
             </div>
           ) : (
-            <button onClick={() => setIsModalOpen(true)}>
+            <div onClick={() => setIsModalOpen(true)}>
               <AddIcon />
-            </button>
+            </div>
           )}
         </Button>
       </Flex>
