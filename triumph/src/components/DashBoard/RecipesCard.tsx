@@ -58,7 +58,7 @@ const RecipesCardComponent: React.FC<IRecipeProps> = (props) => {
         <Flex flexDir={"row"}>
           <Box flex={1} mt={4}>
             {ingredients.map((ingredient: any) => (
-              <Box key={"label" + ingredient.text}>{ingredient.text}</Box>
+              <Box key={Math.random()}>{ingredient.text}</Box>
             ))}
           </Box>
         </Flex>
