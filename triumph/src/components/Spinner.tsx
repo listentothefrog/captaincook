@@ -4,6 +4,7 @@ import { Spinner } from "@chakra-ui/spinner";
 interface SpinnerComponentMessageProps {
   message: string;
 }
+
 const SpinnerComponent = (props: SpinnerComponentMessageProps) => {
   const { message } = props;
   return (
