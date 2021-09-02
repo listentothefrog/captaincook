@@ -9,10 +9,10 @@ const ProfilePictureComponent = () => {
   const name = email?.substring(0, email.indexOf("@"));
 
   return (
-    <Box width={"150px"} height={"150px"} border={"solid"} borderRadius={"50%"}>
+    <Box borderRadius={"50%"}>
       <Image
         width={"100%"}
-        height={"90%"}
+        height={"100%"}
         src={`https://avatars.dicebear.com/api/micah/:${name}.svg`}
         alt={"User profile picture"}
       />
