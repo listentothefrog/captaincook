@@ -74,132 +74,135 @@ const Account = () => {
           <ProfilePictureComponent />
         </Suspense>
       </Box>
-      <Box width={"100%"}>
+      <Box width={{ base: "50%", lg: "100%" }}>
         <Heading fontSize={"16px"} fontWeight={"bold"}>
           Email
         </Heading>
 
         <Input
           mt={2}
-          width={"full"}
           isReadOnly
           placeholder="Email"
           value={user?.email! as string}
         />
       </Box>
       <Box
-        width={"full"}
+        width={{ base: "50%", lg: "100%" }}
         p={1}
         border={1}
         borderBottom={"1px"}
         opacity={".5"}
         mt={2}
       ></Box>
-      <Flex flexDirection={"column"} mr={"auto"} mt={2}>
-        <Heading mt={5} fontSize={"16px"}>
-          Password and Authentication
-        </Heading>
-        <Text mt={2} color={"gray.600"}>
-          {user?.emailVerified === true
-            ? ""
-            : "Your email is not verified, so if you click the verify button you will have this superpowers ;)"}
-        </Text>
-        <Button
-          width={"70vh"}
-          mt={4}
-          background={"green.400"}
-          color={"white"}
-          onClick={onOpen}
-          disabled={user?.emailVerified === false}
-        >
-          Change Password
-        </Button>
-
-        <Modal size={"xl"} isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Change Password</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <FormControl width={"100%"} id="Email" isRequired>
-                <InputGroup>
-                  <InputLeftElement pointerEvents="none" color="gray.300" />
-                  <Input
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                    type="email"
-                    placeholder="email"
-                  />
-                </InputGroup>
-              </FormControl>
-            </ModalBody>
-
-            <ModalFooter>
-              <Link mr={3} onClick={onClose}>
-                Close
-              </Link>
-              <Button
-                onClick={userUpdatePassword}
-                background={"green.400"}
-                color={"white"}
-                variant="ghost"
-              >
-                Change
-              </Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
-      </Flex>
-      <Box
-        width={"full"}
-        p={1}
-        border={1}
-        borderBottom={"1px"}
-        opacity={".5"}
-        mt={2}
-      ></Box>
-      <Flex flexDirection={"column"} mr={"auto"} mt={2}>
-        <Heading mt={5} fontSize={"16px"}>
-          Email Verification
-        </Heading>
-        <Text mt={2} color={"gray.600"}>
-          {user?.emailVerified === true
-            ? "Your email is already verified, so you don't have to button below ever again ;)"
-            : "Your email is not verified, so if you click the button below you will have superpowers ;)"}
-        </Text>
-        <Button
-          onClick={async () => await user?.sendEmailVerification()}
-          disabled={user?.emailVerified === true}
-          background={"green.400"}
-          color={"white"}
-          mt={5}
-        >
-          Verify your email
-        </Button>
-        <Box
-          width={"full"}
-          p={1}
-          border={1}
-          borderBottom={"1px"}
-          opacity={".5"}
-          mt={2}
-        ></Box>
-        <Flex flexDirection={"column"} mt={10}>
-          <Heading fontSize={"16px"}>Your account</Heading>
+      <Box width={{ base: "50%", lg: "100%" }}>
+        <Flex flexDirection={"column"} mr={"auto"} mt={2}>
+          <Heading mt={5} fontSize={"16px"}>
+            Password and Authentication
+          </Heading>
           <Text mt={2} color={"gray.600"}>
-            Manage your account here, and always be cautious of what you do
-            because there are consequences.
+            {user?.emailVerified === true
+              ? ""
+              : "Your email is not verified, so if you click the verify button you will have this superpowers ;)"}
           </Text>
           <Button
-            onClick={userSignOut}
+            width={"100%"}
+            mt={4}
+            background={"green.400"}
+            color={"white"}
+            onClick={onOpen}
+            disabled={user?.emailVerified === false}
+          >
+            Change Password
+          </Button>
+
+          <Modal size={"xl"} isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader>Change Password</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                <FormControl width={"100%"} id="Email" isRequired>
+                  <InputGroup>
+                    <InputLeftElement pointerEvents="none" color="gray.300" />
+                    <Input
+                      onChange={(e) => setEmail(e.target.value)}
+                      value={email}
+                      type="email"
+                      placeholder="email"
+                    />
+                  </InputGroup>
+                </FormControl>
+              </ModalBody>
+
+              <ModalFooter>
+                <Link mr={3} onClick={onClose}>
+                  Close
+                </Link>
+                <Button
+                  onClick={userUpdatePassword}
+                  background={"green.400"}
+                  color={"white"}
+                  variant="ghost"
+                >
+                  Change
+                </Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
+        </Flex>
+      </Box>
+      <Box
+        width={{ base: "50%", lg: "100%" }}
+        p={1}
+        border={1}
+        borderBottom={"1px"}
+        opacity={".5"}
+        mt={2}
+      ></Box>
+      <Box width={{ base: "50%", lg: "100%" }}>
+        <Flex flexDirection={"column"} mr={"auto"} mt={2}>
+          <Heading mt={5} fontSize={"16px"}>
+            Email Verification
+          </Heading>
+          <Text mt={2} color={"gray.600"}>
+            {user?.emailVerified === true
+              ? "Your email is already verified, so you don't have to button below ever again ;)"
+              : "Your email is not verified, so if you click the button below you will have superpowers ;)"}
+          </Text>
+          <Button
+            onClick={async () => await user?.sendEmailVerification()}
+            disabled={user?.emailVerified === true}
             background={"green.400"}
             color={"white"}
             mt={5}
           >
-            Log out
+            Verify your email
           </Button>
+          <Box
+            width={"full"}
+            p={1}
+            border={1}
+            borderBottom={"1px"}
+            opacity={".5"}
+            mt={2}
+          ></Box>
+          <Flex flexDirection={"column"} mt={10}>
+            <Heading fontSize={"16px"}>Your account</Heading>
+            <Text mt={2} color={"gray.600"}>
+              Manage your account here, and always be cautious of what you do
+              because there are consequences.
+            </Text>
+            <Button
+              onClick={userSignOut}
+              background={"green.400"}
+              color={"white"}
+              mt={5}
+            >
+              Log out
+            </Button>
+          </Flex>
         </Flex>
-      </Flex>
+      </Box>
     </Flex>
   );
 };
