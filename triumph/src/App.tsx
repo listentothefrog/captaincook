@@ -28,7 +28,7 @@ const App: React.FC<IApplicationProps> = (props) => {
   }, []);
 
   if (loading)
-    return <SpinnerComponent message={`Loading ${location.pathname}`} />;
+    return <SpinnerComponent message={`Loading ${location.pathname}...`} />;
 
   return (
     <div>
