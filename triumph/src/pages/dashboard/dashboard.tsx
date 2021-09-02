@@ -35,7 +35,15 @@ const Dashboard = () => {
             <DashboardHeader />
           </Suspense>
         </Box>
-        <FeedComponent />
+        <Suspense
+          fallback={
+            <SpinnerComponent
+              message={"Crunching on this file, just for you. Hang tight..."}
+            />
+          }
+        >
+          <FeedComponent />
+        </Suspense>
         <Box
           width={{ base: "100%", lg: "0%" }}
           height={{ base: "70vh", lg: "0vh" }}
