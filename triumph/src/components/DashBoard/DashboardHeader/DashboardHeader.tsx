@@ -23,7 +23,7 @@ const DashboardHeader = () => {
                 Search Recipes
               </NavLink>
             </Box>
-            <Box mr={5}>Cook List</Box>
+            <Box mr={5}>Cook Book</Box>
             <Box>
               <NavLink
                 to="/dashboard/organise"
