@@ -20,6 +20,11 @@ react-firebase.env
 .env.production.local
 .env
 
+# package managers
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#firebase 
+.firebaserc
+firestore.indexes.json
