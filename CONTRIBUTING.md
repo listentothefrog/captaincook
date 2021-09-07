@@ -50,7 +50,7 @@ The backend will be managed by [@listentothefrog](https://github.com/listentothe
    cd src/ 
 ```
 
-> **Note**: If you are opening a PR for fixing a bug or improving the code in the functions folder, Please read Setting up a Firebase Locally. 
+> **Note**: If you are opening a PR for fixing a bug or improving the code in the functions folder, please read Setting up a Firebase Locally. 
 
 ## Issues
 > **NOTE**: If your bug is a **security vulnerability**, please instead see the [security policy](https://github.com/listentothefrog/captaincook/security/policy)
