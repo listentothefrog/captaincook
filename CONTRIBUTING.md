@@ -28,8 +28,15 @@ All changes happen through pull requests. Pull requests are the best way to prop
 2. If you've added code that should be tested, add some test examples.
 3. Ensure to describe your pull request.
 
-### Frontend **(react + nextjs)**:
+### Frontend **(react + typescript)**:
 Navigate to `/triumph`
+
+```bash
+cd triumph/
+npm install 
+npm start
+```
+
 - Use the steps from `How to Commit` guide 
 - Read `triumph/README.md` for more information and fixes for known development issues.
 
