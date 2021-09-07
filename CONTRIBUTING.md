@@ -16,7 +16,7 @@ All changes happen through pull requests. Pull requests are the best way to prop
 ## How to Commit
 
 1. Fork this repo
-   - Clone the repo to your computer.
+   - Clone the Forked repo to your computer.
    - Make sure your shell path is in the root of the project (not inside any of the packages).
    - Navigate into the folder that you would like a make commit on. 
 4. After you are done with your changes you can stage the files you are committing with `git add [files]`.
@@ -41,8 +41,16 @@ npm start
 - Read `triumph/README.md` for more information and fixes for known development issues.
 
 ### Backend **(firebase)**: 
-The backend will be managed by [@listentothefrog](https://github.com/listentothefrog) for the MVP. In the future we will migrate the backend to PostgreSQL and the code will be available.
-> **NOTE**: The libraries might change, I am still doing my reasearch and will be adding more to the list. 
+The backend will be managed by [@listentothefrog](https://github.com/listentothefrog). But contributors can fix bugs or improve the code for cloud functions. 
+
+```bash
+   cd triumph/
+   cd functions/ 
+   npm install 
+   cd src/ 
+```
+
+> **Note**: If you are opening a PR for fixing a bug or improving the code in the functions folder, Please read Setting up a Firebase Locally. 
 
 ## Issues
 > **NOTE**: If your bug is a **security vulnerability**, please instead see the [security policy](https://github.com/listentothefrog/captaincook/security/policy)
