@@ -26,13 +26,13 @@ const DashboardHeader = () => {
             <Box mr={5}>Cook Book</Box>
             <Box>
               <NavLink
-                to="/dashboard/organise"
+                to="/dashboard/discussions"
                 activeStyle={{
                   fontWeight: "bold",
                   color: "#48BB78",
                 }}
               >
-                Organise Recipes
+                Discussions
               </NavLink>
             </Box>
           </Flex>
