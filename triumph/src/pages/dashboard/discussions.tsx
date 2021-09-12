@@ -21,7 +21,7 @@ const discussions = () => {
           <Box width={"490px"}>
             <Flex spacing={4} p="1rem">
               <FormControl id="Post" isRequired>
-                <Link to="/dashboard/discussions/submit">
+                <Link to="/submit">
                   <InputGroup>
                     <InputLeftElement pointerEvents="none" />
                     <Input

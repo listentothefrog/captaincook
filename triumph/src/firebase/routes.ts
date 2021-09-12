@@ -53,7 +53,7 @@ const routes: IRoute[] = [
     protected: true,
   },
   {
-    path: "/dashboard/discussions/submit",
+    path: "/submit",
     exact: true,
     component: submit,
     name: "Submit Page",
