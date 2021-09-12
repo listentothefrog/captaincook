@@ -7,6 +7,7 @@ import home from "src/pages/home";
 import settings from "src/pages/settings/settings";
 import search from "src/pages/dashboard/search";
 import discussions from "src/pages/dashboard/discussions";
+import submit from "src/pages/dashboard/submit";
 
 const routes: IRoute[] = [
   {
@@ -49,6 +50,13 @@ const routes: IRoute[] = [
     exact: true,
     component: discussions,
     name: "Discussions Page",
+    protected: true,
+  },
+  {
+    path: "/dashboard/discussions/submit",
+    exact: true,
+    component: submit,
+    name: "Submit Page",
     protected: true,
   },
   {
