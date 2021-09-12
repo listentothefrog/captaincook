@@ -17,7 +17,7 @@ service cloud.firestore {
       let isNotLong = request.resource.data.text.size() < 255;
       let isNow = request.time == request.resource.data.createdAt;
 
-      return isSignedIn && isOwner && isNotLong && isNow && isNotBanned;
+      return isSignedIn && isOwner && isNotLong && isNow;
     }
 
   }
