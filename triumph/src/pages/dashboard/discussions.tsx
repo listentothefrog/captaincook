@@ -7,9 +7,9 @@ import {
   Input,
   Button,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import DashboardHeader from "src/components/DashBoard/DashboardHeader/DashboardHeader";
 import HeaderComponent from "src/components/Header";
-import search from "./search";
 
 const discussions = () => {
   return (
@@ -21,10 +21,16 @@ const discussions = () => {
           <Box width={"490px"}>
             <Flex spacing={4} p="1rem">
               <FormControl id="Post" isRequired>
-                <InputGroup>
-                  <InputLeftElement pointerEvents="none" />
-                  <Input type="string" placeholder="Create a Post" />
-                </InputGroup>
+                <Link to="/dashboard/discussions/submit">
+                  <InputGroup>
+                    <InputLeftElement pointerEvents="none" />
+                    <Input
+                      isReadOnly
+                      type="string"
+                      placeholder="Create a Post"
+                    />
+                  </InputGroup>
+                </Link>
               </FormControl>
             </Flex>
           </Box>
