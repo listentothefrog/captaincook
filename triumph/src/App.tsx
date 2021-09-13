@@ -9,6 +9,7 @@ import { auth } from "./firebase/firebase";
 import routes from "./firebase/routes";
 import AuthRoute from "./components/AuthRoute";
 import SpinnerComponent from "./components/Spinner";
+import HeaderComponent from "./components/Header";
 
 export interface IApplicationProps {}
 const App: React.FC<IApplicationProps> = (props) => {
@@ -47,7 +48,12 @@ const App: React.FC<IApplicationProps> = (props) => {
                     </AuthRoute>
                   );
 
-                return <route.component {...routeProps} />;
+                return (
+                  <>
+                    <HeaderComponent />
+                    <route.component {...routeProps} />
+                  </>
+                );
               }}
             />
           ))}
