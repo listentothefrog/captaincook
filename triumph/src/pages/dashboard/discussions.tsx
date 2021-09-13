@@ -5,7 +5,6 @@ import {
   InputGroup,
   InputLeftElement,
   Input,
-  Button,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import DashboardHeader from "src/components/DashBoard/DashboardHeader/DashboardHeader";
