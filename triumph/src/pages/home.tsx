@@ -6,21 +6,11 @@ import HomeCookIcon from "../images/HomeCook.svg";
 import MasterChefIcon from "../images/MasterChef.svg";
 import ProChefIcon from "../images/ProChef.svg";
 const PricingComponent = React.lazy(() => import("src/components/Pricing"));
-const HeaderComponent = React.lazy(() => import("src/components/Header"));
 const Features = React.lazy(() => import("src/components/Features"));
 
 const home = () => {
   return (
     <Box>
-      <Suspense
-        fallback={
-          <SpinnerComponent
-            message={"Crunching on this file, just for you. Hang tight..."}
-          />
-        }
-      >
-        <HeaderComponent />
-      </Suspense>
       <Flex
         justifyContent={"center"}
         width={"100%"}
