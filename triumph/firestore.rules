@@ -16,8 +16,9 @@ service cloud.firestore {
       let isOwner = request.auth.uid == request.resource.data.uid;
       let isNotLong = request.resource.data.text.size() < 255;
       let isNow = request.time == request.resource.data.createdAt;
+      let deletePost = request.auth.uid != null && request.auth.uid == request.resource.data.uid;
 
-      return isSignedIn && isOwner && isNotLong && isNow;
+      return isSignedIn && isOwner && isNotLong && isNow && deletePost;
     }
 
   }
