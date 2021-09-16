@@ -3,4 +3,5 @@ export interface Post {
   text: string;
   upvotes: number;
   author: string;
+  createdAt: string;
 }
