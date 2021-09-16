@@ -1,10 +1,7 @@
 import { Box, Flex, Heading, Link, Text } from "@chakra-ui/layout";
-import { useState } from "react";
 import { BiUpvote, BiDownvote } from "react-icons/bi";
 
 const Posts = () => {
-  const [vote, setVote] = useState(false);
-  const handleClick = () => setVote(vote);
   return (
     <Flex
       mr={5}
