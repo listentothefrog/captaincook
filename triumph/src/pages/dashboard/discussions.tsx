@@ -6,10 +6,12 @@ import {
   InputLeftElement,
   Input,
 } from "@chakra-ui/react";
+import React, { Suspense } from "react";
 import { Link } from "react-router-dom";
 import DashboardHeader from "src/components/DashBoard/DashboardHeader/DashboardHeader";
-import Posts from "src/components/DashBoard/Posts";
 import HeaderComponent from "src/components/Header";
+import SpinnerComponent from "src/components/Spinner";
+const Posts = React.lazy(() => import("src/components/DashBoard/Posts"));
 
 const discussions = () => {
   return (
@@ -36,7 +38,9 @@ const discussions = () => {
           </Box>
         </Flex>
       </Box>
-      <Posts />
+      <Suspense fallback={<SpinnerComponent message={"Loading posts..."} />}>
+        <Posts />
+      </Suspense>
     </Box>
   );
 };
