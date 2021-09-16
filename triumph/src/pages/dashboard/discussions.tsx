@@ -8,6 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import DashboardHeader from "src/components/DashBoard/DashboardHeader/DashboardHeader";
+import Posts from "src/components/DashBoard/Posts";
 import HeaderComponent from "src/components/Header";
 
 const discussions = () => {
@@ -35,6 +36,7 @@ const discussions = () => {
           </Box>
         </Flex>
       </Box>
+      <Posts />
     </Box>
   );
 };
