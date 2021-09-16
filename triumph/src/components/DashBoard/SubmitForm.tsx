@@ -18,13 +18,12 @@ const SubmitForm = () => {
   return (
     <Flex
       width={"100%"}
-      height={"50vh"}
       justifyContent={"center"}
       alignItems={"center"}
       flexDirection={"column"}
     >
       <Box
-        width={{ base: "300px", md: "400px", lg: "600px" }}
+        width={{ base: "300px", md: "400px", lg: "620px" }}
         background={"#fafafa"}
         borderRadius={"lg"}
       >
