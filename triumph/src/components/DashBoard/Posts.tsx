@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Link, Text } from "@chakra-ui/layout";
+import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
 import { BiUpvote, BiDownvote } from "react-icons/bi";
 
 const Posts = () => {
