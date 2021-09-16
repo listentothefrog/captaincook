@@ -42,7 +42,7 @@ const SubmitForm = () => {
           ></Box>
         </Box>
         <Box m={4}>
-          <Input placeholder={"Title"} borderRadius={"lg"} />
+          <Input value={titleValue} placeholder={"Title"} borderRadius={"lg"} />
           <Textarea
             mt={5}
             value={textValue}
