@@ -1,18 +1,36 @@
 import { Flex, Textarea, Box, Input, Button, Heading } from "@chakra-ui/react";
-import { useState } from "react";
+import firebase from "firebase/app";
+import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useCollectionData } from "react-firebase-hooks/firestore";
 import { Link } from "react-router-dom";
+import { auth, firestore } from "src/firebase/firebase";
+import { Post } from "src/interfaces/post";
 
 const SubmitForm = () => {
-  const [titleValue, setTitleValue] = useState();
+  const [user] = useAuthState(auth);
+
+  const [titleValue, setTitleValue] = useState("");
   const [textValue, setTextValue] = useState("");
 
-  const handleInputChange = (e: any) => {
-    // title
-    const inputTitleValue = e.target.value;
-    setTitleValue(inputTitleValue);
-    // text
-    const inputTextValue = e.target.value;
-    setTextValue(inputTextValue);
+  const postsRef = firestore.collection("discussions");
+  const query = postsRef.orderBy("createdAt").limit(20);
+  const [posts]: [Post[] | undefined, boolean, Error | undefined] =
+    useCollectionData<Post>(query, { idField: "id" });
+
+  const addPosts = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const email = user?.email;
+    const name = email?.substring(0, email.indexOf("@"));
+
+    await postsRef.add({
+      title: titleValue,
+      text: textValue,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      author: name,
+      upvotes: 0,
+    });
   };
 
   return (
@@ -41,11 +59,16 @@ const SubmitForm = () => {
           ></Box>
         </Box>
         <Box m={4}>
-          <Input value={titleValue} placeholder={"Title"} borderRadius={"lg"} />
+          <Input
+            onChange={(e) => setTitleValue(e.target.value)}
+            value={titleValue}
+            placeholder={"Title"}
+            borderRadius={"lg"}
+          />
           <Textarea
             mt={5}
             value={textValue}
-            onChange={handleInputChange}
+            onChange={(e) => setTextValue(e.target.value)}
             borderRadius={"lg"}
             placeholder="What is on your mind?"
             size="sm"
@@ -70,7 +93,7 @@ const SubmitForm = () => {
               backgroundColor={"green.400"}
               width="70px"
               isDisabled={textValue.length <= 5}
-              onClick={() => console.log("Weee")}
+              onClick={addPosts}
               color={"white"}
             >
               Post
