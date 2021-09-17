@@ -1,11 +1,8 @@
 import { Flex, Textarea, Box, Input, Button, Heading } from "@chakra-ui/react";
-import firebase from "firebase/app";
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useCollectionData } from "react-firebase-hooks/firestore";
 import { Link } from "react-router-dom";
 import { auth, firestore } from "src/firebase/firebase";
-import { Post } from "src/interfaces/post";
 
 const SubmitForm = () => {
   const [user] = useAuthState(auth);
@@ -14,23 +11,26 @@ const SubmitForm = () => {
   const [textValue, setTextValue] = useState("");
 
   const postsRef = firestore.collection("discussions");
-  const query = postsRef.orderBy("createdAt").limit(20);
-  const [posts]: [Post[] | undefined, boolean, Error | undefined] =
-    useCollectionData<Post>(query, { idField: "id" });
 
   const addPosts = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const date = new Date();
     const email = user?.email;
     const name = email?.substring(0, email.indexOf("@"));
 
     await postsRef.add({
-      title: titleValue,
-      text: textValue,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      titleValue,
+      textValue,
+      createdAt: date.toUTCString(),
+      updatedAt: date.toUTCString(),
       author: name,
-      upvotes: 0,
+      upVotes: 0,
+      downVotes: 0,
     });
+
+    setTitleValue("");
+    setTextValue("");
   };
 
   return (
