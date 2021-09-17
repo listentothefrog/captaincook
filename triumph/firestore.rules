@@ -3,18 +3,22 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     match /{document=**} {
-      allow read, write: if request.auth.uid != null;
+      allow read, write, delete: if globalRules();
     }
 
     match /discussions/{docId} {
-      allow read: if request.auth.uid != null;
-      allow create: if canCreateDiscussion();
+      allow read, create, delete: if canCreateDiscussion();
+    }
+
+    function globalRules () {
+      let isSignedInUser = request.auth.uid != null; 
+      return isSignedInUser
     }
 
     function canCreateDiscussion() {
       let isSignedIn = request.auth.uid != null;
       let isOwner = request.auth.uid == request.resource.data.uid;
-      let isNotLong = request.resource.data.text.size() < 255;
+      let isNotLong = request.resource.data.text.size() > 255;
       let isNow = request.time == request.resource.data.createdAt;
       let deletePost = request.auth.uid != null && request.auth.uid == request.resource.data.uid;
 
