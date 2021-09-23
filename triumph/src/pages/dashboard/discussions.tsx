@@ -24,22 +24,23 @@ const Discussions = () => {
           <SubmitForm />
         </Flex>
       </Box>
-      <Suspense
-        fallback={<SpinnerComponent message={"Fetching new posts..."} />}
-      >
-        {posts &&
-          posts.map((post) => (
-            <Posts
-              key={post.id}
-              id={post.id}
-              titleValue={post.titleValue}
-              textValue={post.textValue}
-              author={post.author}
-              createdAt={post.createdAt}
-              upVotes={post.upVotes}
-            />
-          ))}
-      </Suspense>
+      <Box mt={"10"}>
+        <Suspense
+          fallback={<SpinnerComponent message={"Fetching new posts..."} />}
+        >
+          {posts &&
+            posts.map((post) => (
+              <Posts
+                key={post.id}
+                id={post.id}
+                textValue={post.textValue}
+                author={post.author}
+                createdAt={post.createdAt}
+                likes={post.likes}
+              />
+            ))}
+        </Suspense>
+      </Box>
     </Box>
   );
 };
