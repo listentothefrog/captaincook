@@ -3,7 +3,7 @@ import { BiUpvote, BiDownvote } from "react-icons/bi";
 import { Post } from "src/interfaces/post";
 
 const Posts = (props: Post) => {
-  const { titleValue, textValue, upVotes, author, createdAt } = props;
+  const { textValue, upVotes, author, createdAt } = props;
   return (
     <Flex
       mr={5}
@@ -33,13 +33,10 @@ const Posts = (props: Post) => {
       </Box>
       <Box flex={1}>
         <Flex flexDir={"column"}>
-          <Flex alignItems={"center"}>
-            <Heading ml={"5"} fontSize="xl">
-              {titleValue}
-            </Heading>
-          </Flex>
           <Flex mt={2} ml={4}>
-            <Text color={"#707070"}>{textValue}</Text>
+            <Text fontFamily={"body"} fontSize={"lg"}>
+              {textValue}
+            </Text>
           </Flex>
         </Flex>
       </Box>
