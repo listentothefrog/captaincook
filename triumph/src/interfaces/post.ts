@@ -1,7 +1,7 @@
 export interface Post {
   id: string;
   textValue: string;
-  upVotes: number;
+  likes: number;
   author: string;
   createdAt: string;
 }
