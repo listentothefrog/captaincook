@@ -1,7 +1,6 @@
-import { Flex, Textarea, Box, Input, Button, Heading } from "@chakra-ui/react";
+import { Flex, Textarea, Box, Button } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
 import { auth, firestore } from "src/firebase/firebase";
 import { useToasts } from "react-toast-notifications";
 
@@ -9,34 +8,27 @@ const SubmitForm = () => {
   const [user] = useAuthState(auth);
   const { addToast } = useToasts();
 
-  const [titleValue, setTitleValue] = useState("");
   const [textValue, setTextValue] = useState("");
 
   const postsRef = firestore.collection("discussions");
 
   const addPosts = async (e: React.FormEvent) => {
-    e.preventDefault();
-
     const date = new Date();
     const email = user?.email;
+    // fetch charecters before @
     const name = email?.substring(0, email.indexOf("@"));
 
     try {
       await postsRef.add({
-        titleValue,
         textValue,
-        createdAt: date.toUTCString(),
-        updatedAt: date.toUTCString(),
+        likes: 0,
         author: name,
         upVotes: 0,
         downVotes: 0,
       });
-      setTitleValue("");
       setTextValue("");
-    } catch (err) {
-      console.log(err);
-      const message = err.message;
-      addToast(message, {
+    } catch (err: any) {
+      addToast(err.message, {
         appearance: "warning",
         autoDismiss: true,
       });
@@ -55,26 +47,7 @@ const SubmitForm = () => {
         background={"#fafafa"}
         borderRadius={"lg"}
       >
-        <Box mt={4} width={"100%"}>
-          <Heading ml={4} fontSize={"xl"}>
-            Create a Post
-          </Heading>
-          <Box
-            width={"full"}
-            p={1}
-            border={1}
-            borderBottom={"1px"}
-            opacity={".5"}
-            mt={2}
-          ></Box>
-        </Box>
-        <Box m={4}>
-          <Input
-            onChange={(e) => setTitleValue(e.target.value)}
-            value={titleValue}
-            placeholder={"Title"}
-            borderRadius={"lg"}
-          />
+        <Box ml={4} mr={4}>
           <Textarea
             mt={5}
             value={textValue}
@@ -83,26 +56,14 @@ const SubmitForm = () => {
             placeholder="What is on your mind?"
             size="sm"
           />
-          <Box mt={4} display={"flex"} justifyContent={"flex-end"}>
-            <Link to="/dashboard/discussions">
-              <Button
-                borderRadius={4}
-                type="submit"
-                variant="solid"
-                width="70px"
-                mr={2}
-                color={"black"}
-              >
-                Cancel
-              </Button>
-            </Link>
+          <Box mt={4} mb={2} display={"flex"} justifyContent={"flex-end"}>
             <Button
               borderRadius={4}
               type="submit"
               variant="solid"
               backgroundColor={"green.400"}
               width="70px"
-              isDisabled={textValue.length <= 5}
+              isDisabled={textValue.length > 255}
               onClick={addPosts}
               color={"white"}
             >
