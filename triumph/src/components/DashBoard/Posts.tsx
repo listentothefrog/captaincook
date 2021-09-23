@@ -1,7 +1,9 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
 import { BiUpvote, BiDownvote } from "react-icons/bi";
+import { Post } from "src/interfaces/post";
 
-const Posts = () => {
+const Posts = (props: Post) => {
+  const { titleValue, textValue, upVotes, author, createdAt } = props;
   return (
     <Flex
       mr={5}
@@ -22,7 +24,7 @@ const Posts = () => {
             alignContent={"center"}
             justifyContent={"center"}
           >
-            0
+            {upVotes}
           </Box>
           <Box cursor={"pointer"}>
             <BiDownvote />
@@ -33,17 +35,17 @@ const Posts = () => {
         <Flex flexDir={"column"}>
           <Flex alignItems={"center"}>
             <Heading ml={"5"} fontSize="xl">
-              title
+              {titleValue}
             </Heading>
           </Flex>
           <Flex mt={2} ml={4}>
-            <Text color={"#707070"}>description</Text>
+            <Text color={"#707070"}>{textValue}</Text>
           </Flex>
         </Flex>
       </Box>
       <Box>
         <Text fontSize="12px" color="gray.400">
-          Created at ... by ....
+          Created at {createdAt} by {author}
         </Text>
       </Box>
     </Flex>
