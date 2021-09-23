@@ -1,48 +1,47 @@
 import { Box } from "@chakra-ui/layout";
-import {
-  Flex,
-  FormControl,
-  InputGroup,
-  InputLeftElement,
-  Input,
-} from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import React, { Suspense } from "react";
-import { Link } from "react-router-dom";
 import DashboardHeader from "src/components/DashBoard/DashboardHeader/DashboardHeader";
 import HeaderComponent from "src/components/Header";
 import SpinnerComponent from "src/components/Spinner";
+import { useCollectionData } from "react-firebase-hooks/firestore";
+import { firestore } from "src/firebase/firebase";
+import { Post } from "src/interfaces/post";
+import SubmitForm from "src/components/DashBoard/SubmitForm";
 const Posts = React.lazy(() => import("src/components/DashBoard/Posts"));
 
-const discussions = () => {
+const Discussions = () => {
+  const postsRef = firestore.collection("discussions");
+  const query = postsRef.orderBy("createdAt").limit(20);
+  const [posts]: [Post[] | undefined, boolean, Error | undefined] =
+    useCollectionData<Post>(query, { idField: "id" });
   return (
     <Box>
       <HeaderComponent />
       <DashboardHeader />
       <Box>
         <Flex flexDir="row" mb="2" justifyContent="center" alignItems="center">
-          <Box width={"490px"}>
-            <Flex spacing={4} p="1rem">
-              <FormControl id="Post" isRequired>
-                <Link to="/submit">
-                  <InputGroup>
-                    <InputLeftElement pointerEvents="none" />
-                    <Input
-                      isReadOnly
-                      type="string"
-                      placeholder="Create a Post"
-                    />
-                  </InputGroup>
-                </Link>
-              </FormControl>
-            </Flex>
-          </Box>
+          <SubmitForm />
         </Flex>
       </Box>
-      <Suspense fallback={<SpinnerComponent message={"Loading posts..."} />}>
-        <Posts />
+      <Suspense
+        fallback={<SpinnerComponent message={"Fetching new posts..."} />}
+      >
+        {posts &&
+          posts.map((post) => (
+            <Posts
+              key={post.id}
+              id={post.id}
+              titleValue={post.titleValue}
+              textValue={post.textValue}
+              author={post.author}
+              createdAt={post.createdAt}
+              upVotes={post.upVotes}
+            />
+          ))}
       </Suspense>
     </Box>
   );
 };
 
-export default discussions;
+export default Discussions;
