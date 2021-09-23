@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import { auth, firestore } from "src/firebase/firebase";
+import { useToasts } from "react-toast-notifications";
 
 const SubmitForm = () => {
   const [user] = useAuthState(auth);
+  const { addToast } = useToasts();
 
   const [titleValue, setTitleValue] = useState("");
   const [textValue, setTextValue] = useState("");
@@ -19,18 +21,26 @@ const SubmitForm = () => {
     const email = user?.email;
     const name = email?.substring(0, email.indexOf("@"));
 
-    await postsRef.add({
-      titleValue,
-      textValue,
-      createdAt: date.toUTCString(),
-      updatedAt: date.toUTCString(),
-      author: name,
-      upVotes: 0,
-      downVotes: 0,
-    });
-
-    setTitleValue("");
-    setTextValue("");
+    try {
+      await postsRef.add({
+        titleValue,
+        textValue,
+        createdAt: date.toUTCString(),
+        updatedAt: date.toUTCString(),
+        author: name,
+        upVotes: 0,
+        downVotes: 0,
+      });
+      setTitleValue("");
+      setTextValue("");
+    } catch (err) {
+      console.log(err);
+      const message = err.message;
+      addToast(message, {
+        appearance: "warning",
+        autoDismiss: true,
+      });
+    }
   };
 
   return (
