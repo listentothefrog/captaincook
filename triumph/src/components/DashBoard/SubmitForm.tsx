@@ -23,8 +23,7 @@ const SubmitForm = () => {
         textValue,
         likes: 0,
         author: name,
-        upVotes: 0,
-        downVotes: 0,
+        createdAt: date,
       });
       setTextValue("");
     } catch (err: any) {
