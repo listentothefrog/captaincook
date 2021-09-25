@@ -92,7 +92,7 @@ const home = () => {
         justifyContent={"center"}
         width={"100%"}
         alignItems={"center"}
-        boxShadow={"xl"}
+        borderBottom={"2px"}
       >
         <Box p={10}>
           <Suspense
