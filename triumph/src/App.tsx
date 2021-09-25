@@ -45,6 +45,7 @@ const App: React.FC<IApplicationProps> = () => {
                 if (route.protected)
                   return (
                     <AuthRoute>
+                      <HeaderComponent />
                       <route.component {...routeProps} />
                     </AuthRoute>
                   );
