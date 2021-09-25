@@ -2,7 +2,6 @@ import { Box } from "@chakra-ui/layout";
 import { Flex } from "@chakra-ui/react";
 import React, { Suspense } from "react";
 import DashboardHeader from "src/components/DashBoard/DashboardHeader/DashboardHeader";
-import HeaderComponent from "src/components/Header";
 import SpinnerComponent from "src/components/Spinner";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { firestore } from "src/firebase/firebase";
@@ -17,7 +16,6 @@ const Discussions = () => {
     useCollectionData<Post>(query, { idField: "id" });
   return (
     <Box>
-      <HeaderComponent />
       <DashboardHeader />
       <Box>
         <Flex flexDir="row" mb="2" justifyContent="center" alignItems="center">

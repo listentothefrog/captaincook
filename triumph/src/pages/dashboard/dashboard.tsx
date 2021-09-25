@@ -1,14 +1,12 @@
 import { Box } from "@chakra-ui/react";
 import React, { Suspense } from "react";
 import SpinnerComponent from "src/components/Spinner";
-const HeaderComponent = React.lazy(() => import("src/components/Header"));
+import MobileDashboardComponent from "src/components/DashBoard/DashboardHeader/MobileDashboard";
 const DashboardHeader = React.lazy(
   () => import("src/components/DashBoard/DashboardHeader/DashboardHeader")
 );
 const FeedComponent = React.lazy(() => import("src/components/DashBoard/Feed"));
-const MobileDashboardComponent = React.lazy(
-  () => import("src/components/DashBoard/DashboardHeader/MobileDashboard")
-);
+
 const Dashboard = () => {
   return (
     <Box>
@@ -19,7 +17,6 @@ const Dashboard = () => {
           />
         }
       >
-        <HeaderComponent />
         <Box
           display={{ base: "none", lg: "flex" }}
           alignItems={"center"}
@@ -37,9 +34,7 @@ const Dashboard = () => {
         </Box>
         <Suspense
           fallback={
-            <SpinnerComponent
-              message={"Crunching on this file, just for you. Hang tight..."}
-            />
+            <SpinnerComponent message={"Fetching a random recipe..."} />
           }
         >
           <FeedComponent />
@@ -49,15 +44,7 @@ const Dashboard = () => {
           height={{ base: "70vh", lg: "0vh" }}
           display={{ base: "flex", lg: "none" }}
         >
-          <Suspense
-            fallback={
-              <SpinnerComponent
-                message={"Crunching on this file, just for you. Hang tight..."}
-              />
-            }
-          >
-            <MobileDashboardComponent />
-          </Suspense>
+          <MobileDashboardComponent />
         </Box>
       </Suspense>
     </Box>
