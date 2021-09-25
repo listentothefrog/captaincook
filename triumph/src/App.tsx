@@ -12,7 +12,8 @@ import SpinnerComponent from "./components/Spinner";
 import HeaderComponent from "./components/Header";
 
 export interface IApplicationProps {}
-const App: React.FC<IApplicationProps> = (props) => {
+
+const App: React.FC<IApplicationProps> = () => {
   const location = useLocation();
   const [loading, setLoading] = useState<boolean>(true);
 
