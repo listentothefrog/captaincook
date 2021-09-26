@@ -54,7 +54,12 @@ const SearchComponent = () => {
       <Flex flexDir="row" mb="2" justifyContent="center" alignItems="center">
         <Box width={"490px"}>
           <Flex spacing={4} p="1rem">
-            <FormControl onChange={updateSearch} id="Search Recipe" isRequired>
+            <FormControl
+              onSubmit={getSearch}
+              onChange={updateSearch}
+              id="Search Recipe"
+              isRequired
+            >
               <InputGroup>
                 <InputLeftElement pointerEvents="none" />
                 <Input
