@@ -22,23 +22,9 @@ const Dashboard = () => {
           alignItems={"center"}
           justifyContent={"center"}
         >
-          <Suspense
-            fallback={
-              <SpinnerComponent
-                message={"Crunching on this file, just for you. Hang tight..."}
-              />
-            }
-          >
-            <DashboardHeader />
-          </Suspense>
+          <DashboardHeader />
         </Box>
-        <Suspense
-          fallback={
-            <SpinnerComponent message={"Fetching a random recipe..."} />
-          }
-        >
-          <FeedComponent />
-        </Suspense>
+        <FeedComponent />
         <Box
           width={{ base: "100%", lg: "0%" }}
           height={{ base: "70vh", lg: "0vh" }}
