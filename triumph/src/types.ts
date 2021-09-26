@@ -1,4 +1,4 @@
-import { Post } from "./src/interfaces/post";
+import { Post } from "./interfaces/post";
 export type PostProps = {
   post: Post;
   key: string;
