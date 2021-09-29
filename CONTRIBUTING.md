@@ -47,6 +47,8 @@ npm start
 
 ### Backend **(firebase)**:
 
+Navigate to [`/triumph/functions`](https://github.com/listentothefrog/captaincook/tree/dev/triumph/functions)
+
 ```bash
    cd triumph/
    cd functions/
