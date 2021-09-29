@@ -42,7 +42,7 @@ npm install
 npm start
 ```
 
-- Use the steps from `How to Commit` guide
+- Use the steps from [`How to Commit`](https://github.com/listentothefrog/captaincook/blob/dev/CONTRIBUTING.md#how-to-commit) guide
 - Read `triumph/README.md` for more information and fixes for known development issues.
 
 ### Backend **(firebase)**:
