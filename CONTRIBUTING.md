@@ -32,6 +32,21 @@ All changes happen through pull requests. Pull requests are the best way to prop
 2. If you've added code that should be tested, add some test examples.
 3. Ensure to describe your pull request.
 
+## Setting up locally
+
+First, clone this repository and move into the directory:
+
+```bash
+   git clone https://github.com/listentothefrog/captaincook.git
+   cd captiancook
+```
+
+Then, use NPM to install and load all the necessary dependencies:
+
+```bash
+   npm install
+```
+
 ### Frontend **(react + typescript)**:
 
 Navigate to [`/triumph`](https://github.com/listentothefrog/captaincook/tree/dev/triumph)
