@@ -41,9 +41,3 @@ This project is open for contibutions anyone with any experience can contribute 
 - React (frontend)
 - Firebase (backend)
 - Typescript (programming language)
-
-## Reviewers
-
-Here is the current list of the reviewers that will help with reviewing/merging your code.
-
-- [@listentothefrog](https://github.com/listentothefrog)
