@@ -1,7 +1,7 @@
-name: Firebase CD
+name: Firebase Continuous Deployment
 
 on:
-  pull_request:
+  push:
     branches: [prod]
 
 jobs:
@@ -11,11 +11,11 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
-        node-version: 16
+          node-version: 16
       - run: npm ci
       - run: npm run build
-      - uses: w9js/firebase-action@master
+      - uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
         env:
-          FIREBASE_HOSTING_VALUE: ${{secrets.FIREBASE_HOSTING_VALUE}}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_HOSTING_VALUE }}
