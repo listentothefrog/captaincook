@@ -62,10 +62,10 @@ The backend will be managed by [@listentothefrog](https://github.com/listentothe
 
 ## Issues
 
-> **NOTE**: If your bug is a **security vulnerability**, please instead see the [security policy](https://github.com/listentothefrog/captaincook/security/policy)
-
 We use GitHub issues to track public bugs. Please ensure your description is
 clear and has sufficient instructions to be able to reproduce the issue. Report a bug by <a href="https://github.com/listentothefrog/captaincook/issues">opening a new issue</a>.
+
+> **NOTE**: If your bug is a **security vulnerability**, please instead see the [security policy](https://github.com/listentothefrog/captaincook/security/policy)
 
 ## Feature Request
 
