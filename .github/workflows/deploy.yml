@@ -1,0 +1,21 @@
+name: Firebase CD
+
+on:
+  pull_request:
+    branches: [prod]
+
+jobs:
+  deploy:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@master
+      with:
+      node-version: 16
+    - run: npm ci
+    - run: npm run build
+    - uses: w9js/firebase-action@master
+      with:
+        args: deploy --only hosting
+      env:
+        FIREBASE_HOSTING_VALUE: ${{secrets.FIREBASE_HOSTING_VALUE}}
