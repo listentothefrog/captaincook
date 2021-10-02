@@ -20,18 +20,13 @@ const Posts = (props: Post) => {
         <Box display={"flex"} width={"100%"} alignItems={"center"} flex={1}>
           <Flex flexDir={"column"}>
             <Flex mt={2} ml={4}>
-              <Text
-                fontFamily={"heading"}
-                fontSize={{ base: "xs", lg: "medium" }}
-              >
-                {textValue}
-              </Text>
+              <Text fontSize={{ base: "xs", lg: "medium" }}>{textValue}</Text>
             </Flex>
           </Flex>
         </Box>
         <Box>
-          <Text fontSize="12px" color="gray.400" mt={2} mr={2}>
-            Created by @{author}
+          <Text fontSize={{ base: "12px", lg: "14px" }} mt={2} mr={2}>
+            Posted by @{author}
           </Text>
         </Box>
       </Box>
