@@ -28,9 +28,9 @@ CaptainCook is where you can organize your recipes. Chef's can create a recipie 
 
 ## Branches
 
-- dev => development anyone can make a pr to this branch
-- prod => please don't touch this branch this is the live website
-- feature/discussions => the branch that contains the code for discussions
+- dev 👉 development anyone can make a pr to this branch
+- prod 👉 please don't touch this branch this is the live website
+- feature/discussions 👉 the branch that contains the code for discussions
 
 ## Contributions
 
