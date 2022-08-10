@@ -21,16 +21,25 @@ CaptainCook is where you can organize your recipes. Chef's can create a recipie 
 
 ## Status
 
+- [ ] dev: We are working on it 🙇
+
 - [ ] Private Alpha: We are testing CaptainCook with a closed set of moms and chefs.
+
 - [ ] Public Alpha: We are expanding our user base, and anyone can visit our product.
+
 - [ ] Public Beta: Stable enough, and anyone who is not an expert can use our product.
+
 - [ ] Public: Production-ready and anyone can use our product.
 
 ## Branches
 
 - dev 👉 development anyone can make a pr to this branch
+
 - prod 👉 please don't touch this branch this is the live website
+
 - feature/discussions 👉 the branch that contains the code for discussions
+
+- load-commits 👉 the branch that contains the code for loading all the commits that happends to this repo
 
 ## Contributions
 
