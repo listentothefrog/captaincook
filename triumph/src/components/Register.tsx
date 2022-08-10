@@ -1,3 +1,4 @@
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -8,6 +9,7 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  InputRightElement,
   Stack,
 } from "@chakra-ui/react";
 import { useState } from "react";
@@ -19,6 +21,8 @@ const RegisterComponent = () => {
   const [registering, setRegistering] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [show, setShow] = useState(false);
+  const handleClick = () => setShow(!show);
   const [error, setError] = useState<string>("");
   const history = useHistory();
   const { addToast } = useToasts();
@@ -88,6 +92,16 @@ const RegisterComponent = () => {
                   type="password"
                   placeholder="password"
                 />
+                <InputRightElement width="4.5rem">
+                  <Button
+                    backgroundColor={"transparent"}
+                    h="1.75rem"
+                    size="sm"
+                    onClick={handleClick}
+                  >
+                    {show ? <ViewIcon /> : <ViewOffIcon />}
+                  </Button>
+                </InputRightElement>
               </InputGroup>
             </FormControl>
 
