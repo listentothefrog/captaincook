@@ -54,7 +54,9 @@ const HeaderComponent = () => {
         </Text>
         <Text mr={4}>{user ? "" : <Link to="/login">Login</Link>}</Text>
         <Text mr={4}>Contact</Text>
-        <Text mr={4}>Change Log</Text>
+        <Text mr={4}>
+          <Link to="/logs"> Change Log </Link>
+        </Text>
         <Text>{user ? <Link to="/settings">Account Settings</Link> : ""}</Text>
       </Stack>
     </Flex>
