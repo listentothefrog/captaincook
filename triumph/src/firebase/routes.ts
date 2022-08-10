@@ -7,6 +7,7 @@ import home from "src/pages/home";
 import settings from "src/pages/settings/settings";
 import search from "src/pages/dashboard/search";
 import discussions from "src/pages/dashboard/discussions";
+import ChangeLogs from "src/components/ChangeLogs";
 
 const routes: IRoute[] = [
   {
@@ -57,6 +58,13 @@ const routes: IRoute[] = [
     component: search,
     name: "Search Page",
     protected: true,
+  },
+  {
+    path: "/logs",
+    exact: true,
+    component: ChangeLogs,
+    name: "Logs",
+    protected: false,
   },
   {
     path: "*",
