@@ -10,8 +10,8 @@ require("dotenv").config();
 // custom fonts
 const theme = extendTheme({
   fonts: {
-    heading: "Ubuntu, sans-serif",
-    body: "Poppins, sans-serif",
+    heading: "Montserrat, sans-serif",
+    body: "Kanit, sans-serif",
   },
 });
 
