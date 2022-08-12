@@ -105,12 +105,12 @@ const SearchComponent = () => {
         >
           <Heading
             fontWeight={"extrabold"}
-            fontSize={"2xl"}
+            fontSize={"xl"}
             mr={5}
             ml={5}
             mt={4}
           >
-            Your feed
+            Search Results for "{search}"
           </Heading>
           {recipes.map((recipe: any) => (
             <RecipesCardComponent
